@@ -1,0 +1,27 @@
+Current Tasks
+WORK IN PROGRESS
+
+1 Point = 1 Hour
+
+User Case:
+  User Profiles
+    User Page(s)
+    
+1) Style and Design (~ estimated Points)
+  a) Front End: 
+    i) Finalize styling; collaborate with guild on final designs
+    ii) Create React code for user page?
+  b) Back End: ?
+  c) Database: 
+    i) Finalize Schema
+    ii) Initialize database? collaboration with guild on initialization
+    
+2) Prototyping (~ estimated Points)
+  a) Front End: 
+    i) Creating user profiles
+  b) Back End: 
+    i) Interaction between database and client
+  c) Database: 
+    i) Storing user profiles
+
+3) Testing (~ estimated Points)
