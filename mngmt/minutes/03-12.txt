@@ -13,4 +13,4 @@ Priorities:
 Etc:
   - Primary focus on web-based design
   - 1 Point = 1 Hour
-  - Tasks to be written out on git/zen by Thursday Morning
+  - Tasks to be written out on git/zen by Thursday morning
