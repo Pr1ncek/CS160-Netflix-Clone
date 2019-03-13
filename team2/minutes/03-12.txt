@@ -1,0 +1,14 @@
+March 12
+Minutes
+
+DATABASE:
+Created schemas of required data
+https://docs.google.com/document/d/1G-IeisgkeeYUm5NsR5qJ1f4zXhOnv3T79fIc4EB36-c/edit?usp=sharing
+
+BACKEND:
+Backend discussed linking different parts of the website together.
+Comments made on a movie are linked to users, and user profiles are linked to their comments.
+ex. /user/comments/comment_id will link to /movie/comment/comment_id
+
+FRONTEND:
+Draft design; see photo.
