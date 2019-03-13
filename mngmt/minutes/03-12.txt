@@ -1,0 +1,14 @@
+March 12 
+Minutes
+
+Team Tasks:
+  Team 1: Home Page   / Search & Sort
+  Team 2: User Page   / User Profiles
+  Team 3: Movie Page  / User Comments on Movies
+  
+Priorities:
+  - Slack communication
+  - Zen/Github connection
+  
+Etc:
+  - Primary focus on web-based design
