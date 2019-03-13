@@ -1,0 +1,7 @@
+TEAM 2
+
+Members:                  Guild:
+  Shail Gajjar              Database
+  Victor La                 Back End
+  Phoenix (Nhu) Nguyen      Front End
+  Roger Kuo                 Github
