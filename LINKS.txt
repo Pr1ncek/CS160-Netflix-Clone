@@ -1,0 +1,10 @@
+Google Drive 
+  Main Folder:
+        https://drive.google.com/drive/folders/1t-M-I63x5Kz68XDTLHU9kucr5ctJ2wga 
+  Product Backlog
+        https://docs.google.com/document/d/1gCoG3ZX6Cz8eTgYWmmyJmQ0uvH3bmlMN9YHbRJd7A2c/edit?usp=sharing
+  High-Level Design
+        https://docs.google.com/drawings/d/1Lgtbkm61EmJE-Tz8b3UZ_tNph2hPZVCGtGagHAPtlYs/edit?usp=sharing
+        
+  Schema(s)
+        https://docs.google.com/document/d/1G-IeisgkeeYUm5NsR5qJ1f4zXhOnv3T79fIc4EB36-c/edit?usp=sharing
