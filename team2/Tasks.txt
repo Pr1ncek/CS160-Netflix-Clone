@@ -1,6 +1,9 @@
 Current Tasks
-WORK IN PROGRESS
 
+WORK IN PROGRESS
+Please make any necessary changes!
+
+Time Completion Estimation
 1 Point = 1 Hour
 
 User Case:
