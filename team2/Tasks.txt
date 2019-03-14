@@ -10,14 +10,14 @@ User Case:
   User Profiles
     User Page(s)
     
-1) Style and Design (~ estimated Points)
+SPRINT 1:
+1) Style and Design (1 Point)
   a) Front End: 
     i) Finalize styling; collaborate with guild on final designs
     ii) Create React code for user page?
   b) Back End: ?
   c) Database: 
     i) Finalize Schema
-    ii) Initialize database? collaboration with guild on initialization
     
 2) Prototyping (~ estimated Points)
   a) Front End: 
@@ -25,6 +25,7 @@ User Case:
   b) Back End: 
     i) Interaction between database and client
   c) Database: 
-    i) Storing user profiles
+    i) Initialize database? collaboration with guild on initialization
+    ii) Storing user profiles
 
 3) Testing (~ estimated Points)
