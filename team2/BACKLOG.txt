@@ -1,17 +1,15 @@
-BACKLOG
+BACKLOG Notes
 
 WORK IN PROGRESS
 Please make any necessary changes!
-
-Time Completion Estimation
-1 Point = 1 Hour
+I will try to have these reflect on Zen.
 
 User Case: As a user, I should be able to create an user profile with my information and later edit it.
   User Profiles
     User Page(s)
     
 SPRINT 1:
-1) Style and Design (1 Point)
+1) Style and Design
   a) Front End: 
     i) User Profile Page
     ii) User Registration Page
@@ -19,7 +17,7 @@ SPRINT 1:
   c) Database: 
     i) Design Schema
     
-2) Prototyping (~ estimated Points)
+2) Prototyping
   a) Front End: 
     i) Creating user profiles
   b) Back End: 
@@ -28,4 +26,4 @@ SPRINT 1:
     i) Initialize database? collaboration with guild on initialization
     ii) Storing user profiles
 
-3) Testing (~ estimated Points)
+3) Testing

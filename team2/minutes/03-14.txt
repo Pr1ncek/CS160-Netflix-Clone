@@ -1,0 +1,18 @@
+March 14
+SCRUM Minutes
+
+DATABASE:
+Schema is complete?
+Currently working on React.js tutorial
+Will further study on MongoDB
+
+BACKEND:
+Currently working on LinkedIn Learning Courses
+Studying Express.js
+
+FRONTEND:
+Currently working on React.js tutorial
+Next is to add ability to edit user profile.
+
+GITHUB:
+Will start on Express.js
