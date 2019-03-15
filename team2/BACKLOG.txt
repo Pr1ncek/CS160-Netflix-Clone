@@ -13,11 +13,11 @@ User Case: As a user, I should be able to create an user profile with my informa
 SPRINT 1:
 1) Style and Design (1 Point)
   a) Front End: 
-    i) Finalize styling; collaborate with guild on final designs
-    ii) Create React code for user page?
+    i) User Profile Page
+    ii) User Registration Page
   b) Back End: ?
   c) Database: 
-    i) Finalize Schema
+    i) Design Schema
     
 2) Prototyping (~ estimated Points)
   a) Front End: 
