@@ -1,34 +1,31 @@
 BACKLOG Notes
-
-WORK IN PROGRESS
-Please make any necessary changes!
-I will try to have these reflect on Zen.
+*** Changes to be made ***
 
 User Case: As a user, I should be able to create an user profile with my information and later edit it.
   User Profiles
     User Page(s)
-    
-SPRINT 1:
-1) Style and Design
-  a) Front End: 
+
+Boolean
+[0] Not Finished
+[1] Finished 
+
+SPRINT 1: DESIGN
+a) Front End: 
     i) User Profile Page [0]
     ii) User Registration Page [0]
     iii) User Login Page [1]
     iv) User Profile Edit Page [0]
-  b) Back End: 
-    i) Backend routes
-  c) Database: 
-    i) Database Schema for User Page
+b) Back End: 
+    i) Backend routes [0]
+c) Database: 
+    i) Database Schema for User Page [1]
     
 SPRINT 2:
-2) Prototyping
-  a) Front End: 
+a) Front End: 
     i) Create React.js for Designed pages
     ii) Finish off design pages from Sprint 1
-  b) Back End: 
+b) Back End: 
     i) Init connection between database and client
-  c) Database: 
+c) Database: 
     i) Initialize database
     ii) Store data
-
-3) Testing
