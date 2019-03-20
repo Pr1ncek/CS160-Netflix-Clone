@@ -10,22 +10,24 @@ Boolean
 [1] Finished 
 
 SPRINT 1: DESIGN
-a) Front End: 
-    i) User Profile Page [0]
-    ii) User Registration Page [0]
-    iii) User Login Page [1]
-    iv) User Profile Edit Page [0]
-b) Back End: 
-    i) Backend routes [0]
-c) Database: 
-    i) Database Schema for User Page [1]
+1) Front End: [0]
+    a) User Profile Page [0]
+    b) User Registration Page [0]
+    c) User Login Page [1]
+    d) User Profile Edit Page [0]
+2) Back End: [0]
+    a) Backend routes [0]
+3) Database: [1]
+    a) Database Schema for User Page [1]
     
 SPRINT 2:
-a) Front End: 
-    i) Create React.js for Designed pages
-    ii) Finish off design pages from Sprint 1
-b) Back End: 
-    i) Init connection between database and client
-c) Database: 
-    i) Initialize database
-    ii) Store data
+1) Front End: 
+    a) Create React.js for Designed pages
+    b) Finish off design pages from Sprint 1
+        i) User Profile Page
+       ii) User Profile Edit Page
+      iii) User Registration Page
+2) Back End: 
+    a) Init connection between database and client
+3) Database: 
+    a) Initialize database
