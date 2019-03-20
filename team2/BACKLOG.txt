@@ -11,19 +11,24 @@ User Case: As a user, I should be able to create an user profile with my informa
 SPRINT 1:
 1) Style and Design
   a) Front End: 
-    i) User Profile Page
-    ii) User Registration Page
-  b) Back End: ?
+    i) User Profile Page [0]
+    ii) User Registration Page [0]
+    iii) User Login Page [1]
+    iv) User Profile Edit Page [0]
+  b) Back End: 
+    i) Backend routes
   c) Database: 
-    i) Design Schema
+    i) Database Schema for User Page
     
+SPRINT 2:
 2) Prototyping
   a) Front End: 
-    i) Creating user profiles
+    i) Create React.js for Designed pages
+    ii) Finish off design pages from Sprint 1
   b) Back End: 
-    i) Interaction between database and client
+    i) Init connection between database and client
   c) Database: 
-    i) Initialize database? collaboration with guild on initialization
-    ii) Storing user profiles
+    i) Initialize database
+    ii) Store data
 
 3) Testing
