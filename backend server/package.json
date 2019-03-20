@@ -1,0 +1,24 @@
+{
+  "name": "netflix-clone",
+  "version": "1.0.0",
+  "description": "Movies streaming service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pr1ncek/CS160-Netflix-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pr1ncek/CS160-Netflix-Clone/issues"
+  },
+  "homepage": "https://github.com/Pr1ncek/CS160-Netflix-Clone#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
+  }
+}
