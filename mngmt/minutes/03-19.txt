@@ -1,0 +1,17 @@
+March 12 
+Minutes
+
++ End of Sprint 1:
+- Demo
+-- Front End:
+	Only Team 2 has a visible design.
+--Back End:
+	They did not create a routing design. 
+	Working on it tonight.
+	Hopefully will be posted on the High Level Design page by tonight.
+--Database:
+	Already setting up the database. Good.
+- Retrospective
+	Not a lot was completed on time.
+	Will have to move some tasks to Sprint 2.
+	Next DEMO on next Thursday.

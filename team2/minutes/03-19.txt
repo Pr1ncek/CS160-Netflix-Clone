@@ -1,0 +1,17 @@
+March 19
+Minutes
+
+DATABASE:
+Database is already being set up.
+Instructor says that Database should help with Backend for Sprint 2.
+
+BACKEND:
+Working on the routes. 
+Hopefully will be posted on the High Level Design by tonight.
+
+FRONTEND:
+Finished design for Login page.
+Other pages pushed to Sprint 1.
+
+GITHUB:
+Will pickup on unfinished designs.
