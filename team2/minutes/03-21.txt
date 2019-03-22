@@ -1,0 +1,16 @@
+March 21
+Minutes
+
+DATABASE:
+Database is ready set up.
+Need to route to Backend.
+
+BACKEND:
+Need to route to Database
+
+FRONTEND:
+Finished Page Designs.
+To start on React.js pages.
+
+GITHUB:
+To start on React.js pages.

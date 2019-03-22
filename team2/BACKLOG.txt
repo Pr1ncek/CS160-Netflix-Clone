@@ -23,11 +23,15 @@ SPRINT 1: DESIGN
 SPRINT 2:
 1) Front End: 
     a) Create React.js for Designed pages
-    b) Finish off design pages from Sprint 1
-        i) User Profile Page
+	i) User Profile Page 
        ii) User Profile Edit Page
-      iii) User Registration Page
+      iii) User Login Page
+       iv) User Registration Page
+    b) Finish off design pages from Sprint 1 [1]
+        i) User Profile Page [1]
+       ii) User Profile Edit Page [1]
+      iii) User Registration Page [1]
 2) Back End: 
-    a) Init connection between database and client
+    a) Route Client to Database
 3) Database: 
-    a) Initialize database
+    a) Route Client to Database
