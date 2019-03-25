@@ -5,10 +5,7 @@ class Register extends Component {
 		return (
 			<div>
 			<h1>REGISTER</h1> 
-			<ul>
-				<li>Username</li>
-				<li>Password</li>
-			</ul>
+			<p>This is the Register page</p>
 			</div>
 			);
 	}
