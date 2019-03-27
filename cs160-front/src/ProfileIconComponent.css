@@ -1,0 +1,18 @@
+.ProfileIconContainer{
+    position:sticky;
+    left: 100%;
+    bottom: 100%;
+   width: 90px;
+
+
+    
+}
+
+.ProfileIconContainer img {
+    position: absolute;
+    
+    width: 100%;
+    height: auto;
+    
+    
+}

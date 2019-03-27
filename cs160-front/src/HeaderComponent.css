@@ -1,0 +1,27 @@
+.headerContainer{
+    
+    background-color:aqua;
+    position: absolute;
+    width: 100%;
+    padding: 5% 0px 5% 0px;
+    
+    
+}
+
+
+
+.headerContainer img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    
+    
+}
+
+.headerText{
+    text-align: center;
+    font-family:sans-serif;
+    letter-spacing: 5px;
+
+}
+
