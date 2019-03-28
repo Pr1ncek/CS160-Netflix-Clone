@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './VideoComponent.css'
 
 class VideoComponent extends Component {
 	render() {

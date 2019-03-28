@@ -3,13 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import VideoComponent from './VideoComponent'
 import InformationComponent from './InformationComponent'
+import './MoviePage.css'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <VideoComponent />
-        <InformationComponent /> 
+      	<div class="videoWrapper">
+        	<iframe id="movie" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1"> </iframe>
+        </div>	
+		<InformationComponent /> 
       </div>
     );
   }
