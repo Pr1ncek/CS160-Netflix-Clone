@@ -5,6 +5,7 @@ import Login from './Login';
 import Register from './Register'
 import Welcome from './Welcome'
 import UserProfile from './UserProfile'
+import './Style.css'
 import * as serviceWorker from './serviceWorker';
 
 //ReactDOM.render(<Welcome />, document.getElementById('root'));

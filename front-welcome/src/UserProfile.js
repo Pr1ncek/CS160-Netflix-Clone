@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import blankPhoto from "./images/AvatarImg.png"
+import abedPhoto from "./images/abed.jpg"
+import "./Style.css"
 
 var user = {
   basicInfo: {
-    name: "Jane Doe",
-    email: "janedoe@fakeemail.com",
-    photo: blankPhoto,
+    name: "Abed Nadir",
+    email: "abed.nadir@greendale.com",
+    photo: abedPhoto,
   }
 }
 
@@ -38,8 +40,8 @@ class MainPanel extends React.Component {
         <div className="top">
             <Avatar 
                image={info.photo} 
-               width={100}
-               height={100}
+               width={200}
+               height={200}
             /> 
             <h2>{info.name}</h2>
             <h3>{info.email}</h3>
@@ -55,10 +57,17 @@ class MainPanel extends React.Component {
 class UserProfile extends React.Component {
   render() {
     return (
+    <div>
       <div id="user-profile">
         <MainPanel info={user.basicInfo} />
       </div>
-    )
+      <ul className="header">
+        <li><a href='./playlists'>Playlists</a></li>
+        <li><a href='./history'>History</a></li>
+        <li><a href='./comments'>Comments</a></li>
+      </ul>
+    </div>
+    );
   }
 }
 

@@ -1,0 +1,59 @@
+$firebrick: #b22222;
+$steelblue: #4682b4;
+$lightgray: #d3d3d3;
+$dodgerblue: #1e90ff;
+$black: #000000;
+
+body {
+  background-color: #FFCC00;
+  padding: 20px;
+  margin: 0;
+}
+
+{/* # is an ID and can be applied to one element per page */}
+#user-profile {
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	color: white;
+	text-align: center;
+	overflow: hidden;
+	background-color: firebrick;
+}
+
+{/* . is an class and can be applied to many elements */}
+.avatar {
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-flex;
+	margin-bottom: 15px;
+	img {
+		width:100%;
+
+	}
+}
+
+.top {
+	padding: 50px;
+}
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.header {
+  background-color: firebrick;
+  padding: 0;
+}
+
+ul.header li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+
+{/* without either it is a tag targeting all the usage */}
