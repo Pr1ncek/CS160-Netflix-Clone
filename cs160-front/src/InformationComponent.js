@@ -8,6 +8,8 @@ class InformationComponent extends Component {
 			<div> 
 				<DescriptionComponent />
 				<CommentComponent />
+				<CommentComponent />
+				<CommentComponent />
 			</div>
 		);
 	}
