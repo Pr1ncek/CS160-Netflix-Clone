@@ -29,6 +29,9 @@ class Login extends Component {
 						type="button"
 						onClick={this
 							.submitLogin.bind(this)}>Login</button>
+					<div>
+					Don't have an account? <a href="/register">Register Now</a> 
+					</div>
 				</div>
 			</div>
 			);

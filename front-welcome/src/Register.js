@@ -33,6 +33,9 @@ class Register extends Component {
 						type="button"
 						onClick={this
 							.submitRegister.bind(this)}>Create Account</button>
+					<div>
+					Already have an account? <a href="./login">Login Here</a>
+					</div>
 				</div>
 			</div>
 			);
