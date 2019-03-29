@@ -1,0 +1,35 @@
+March 28
+Minutes
+
+Sprint 2 Retrospective
+
+DATABASE:
+Guild worked on creating database;
+Create a user collection in DB (10x dummy data);
+Connect to BE and FE - collaborate with Victor and Phoenix;
+
+What will be the string array of comments? Re-engineer requirements;
+
+BACKEND:
+Routes not set up yet - collaborate with guild (esp. team 1);
+Connect DB to Frontend - collaborate with Phoenix and Shail;
+
+FRONTEND:
+Finished basic React.js pages;
+Connect to DB - collaborate with Victor and Shail;
+Page linking to other pages? - collaborate with guild;
+
+What worked:
+Majority of tasks completed
+Frontend team communication
+
+What didn't work:
+Backend/Database team communicaation
+
+General Notes:
+Requirement clarification with all teams;
+Share designs to entire class - agree on what we will all be seeing on the app;
+Avoid blocking - communicate on what we are waiting for;
+
+Burndown shows velocity of workflow to estimate overall project time;
+Next class - review designs and decide on Sprint 3
