@@ -1,4 +1,12 @@
+.text-white{ text-decoration-color: white; }
+
 #information
 {
+	padding-left: 10px;
+}
+
+#comments
+{
 	overflow: scroll;
+	height: 300px;
 }
