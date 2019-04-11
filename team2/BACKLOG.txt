@@ -20,18 +20,37 @@ SPRINT 1: DESIGN
 3) Database: [1]
     a) Database Schema for User Page [1]
     
-SPRINT 2:
-1) Front End: 
-    a) Create React.js for Designed pages
-	i) User Profile Page 
-       ii) User Profile Edit Page
-      iii) User Login Page
-       iv) User Registration Page
+SPRINT 2: Initialize all instances
+1) Front End: [1]
+    a) Create React.js for Designed pages [1]
+	i) User Profile Page [1]
+       ii) User Profile Edit Page [1]
+      iii) User Login Page [1]
+       iv) User Registration Page [1]
     b) Finish off design pages from Sprint 1 [1]
         i) User Profile Page [1]
        ii) User Profile Edit Page [1]
       iii) User Registration Page [1]
-2) Back End: 
+2) Back End: [0]
     a) Route Client to Database
-3) Database: 
+3) Database: [0]
     a) Route Client to Database
+
+SPRINT 3: Implementation
+1) Front End: 
+    a) Route Client to Database - see Backend
+    b) Finish Sprint 2 tasks
+        i) User Edit Page
+       ii) User Profile Style Sheet
+      iii) User Registration Style Sheet
+       iv) User Login Style Sheet
+        v) User Edit Style Sheet
+2) Back End:
+    a) Route Client to Database
+        i) User Profile Routing
+       ii) User Edit Routing
+      iii) User Registration Routing
+       iv) User Login Routing
+3) Database:
+    a) Route Client to Database - see Backend
+    b) Create User Collection Data (3x dummy) [1]

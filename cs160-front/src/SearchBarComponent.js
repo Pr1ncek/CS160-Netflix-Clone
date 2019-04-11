@@ -8,7 +8,7 @@ class SearchBarComponent extends Component {
                 <div class = "SearchBarText">
                     Search for a movie here:
                 
-                <form action="http://www.youtube.com/results" method="get" target="_blank" >
+                <form action="/VideoBarComponent.js" method="get" target="_self" >
                 <input name="search_query" type="text" maxlength="128" />
                 <select name="search_type">
                 <option value="">Videos</option>

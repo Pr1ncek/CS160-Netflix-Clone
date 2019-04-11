@@ -1,0 +1,18 @@
+March 28
+Minutes
+
+Sprint 2 Retrospective:
+Some requirements will need to be re-engineered.
+> There was confusion about what the user comments in the schema was suppose to be.
+> It was unclear what the search engine should be searching for.
+We need to share designs.
+Burndown shows velocity of work flow to estimate overall time for completion.
+
+Teams to:
+> Collaborate on final color scheme
+> Collaborate on routing
+> Collaborate on page linking
+
+Next class:
+> Review designs of project
+> Decide on Sprint 3 theme

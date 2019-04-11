@@ -1,0 +1,22 @@
+March 28
+Minutes
+
+Sprint 3 Task Setup
+
+DATABASE:
+Dummy data created;
+Routing to be done;
+Connect to BE and FE - collaborate with Victor and Phoenix;
+
+BACKEND:
+Routing to be done - collaborate with guild (esp. team 1);
+Connect DB to Frontend - collaborate with Phoenix and Shail;
+
+FRONTEND:
+To create CSS style pages;
+Connect to DB - collaborate with Victor and Shail;
+Page linking to other pages? - collaborate with guild;
+
+General:
+Tasks written in Sprint 3 Planning googleDoc;
+Will also reflect on Zen and Git;
