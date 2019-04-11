@@ -36,16 +36,21 @@ SPRINT 2: Initialize all instances
 3) Database: [0]
     a) Route Client to Database
 
-SPRINT 3:
+SPRINT 3: Implementation
 1) Front End: 
-    a) Connect to Database
-    b) Finish off React pages from Sprint 2
-        i) User Profile Page
-       ii) User Profile Edit Page
-      iii) User Registration Page Style Sheet
-       iv) User Login Page Style Sheet
+    a) Route Client to Database - see Backend
+    b) Finish Sprint 2 tasks
+        i) User Edit Page
+       ii) User Profile Style Sheet
+      iii) User Registration Style Sheet
+       iv) User Login Style Sheet
+        v) User Edit Style Sheet
 2) Back End:
     a) Route Client to Database
+        i) User Profile Routing
+       ii) User Edit Routing
+      iii) User Registration Routing
+       iv) User Login Routing
 3) Database:
-    a) Route Client to Database
-    b) Create User Collection Data (10x dummy)
+    a) Route Client to Database - see Backend
+    b) Create User Collection Data (3x dummy) [1]
