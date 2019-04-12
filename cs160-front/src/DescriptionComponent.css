@@ -1,0 +1,8 @@
+.text-white{ color: white; }
+
+#title
+{
+	font-size: 30pt;
+	font-weight: bold;
+	text-decoration-color: white;
+}

@@ -8,5 +8,4 @@ router.route("/").get(movieController.getTopMovies);
 router.route("/search").get(movieController.searchMovie);
 router.route("/:movieID").get(movieController.getMoviePage);
 
-
 module.exports = router;
