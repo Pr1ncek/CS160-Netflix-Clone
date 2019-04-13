@@ -4,6 +4,9 @@ import './App.css';
 import VideoComponent from './VideoComponent'
 import InformationComponent from './InformationComponent'
 import './MoviePage.css'
+import axios from 'axios';
+
+const axios = require("axios");
 
 class App extends Component {
   render() {
@@ -15,6 +18,11 @@ class App extends Component {
 		<InformationComponent /> 
       </div>
     );
+  }
+
+  ComponentDidMount()
+  {
+  	this.getMovieInformation()
   }
 }
 
