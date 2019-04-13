@@ -26,7 +26,7 @@ exports.searchMovie = (req, res) => {
 
 //Route: http://localhost:5000/movie/:movieID
 exports.getMoviePage = (req, res) => {
-    Movie.findById(req.params.movieID}).then(result => {
+    Movie.findById(req.params.movieID).then(result => {
         res.json(result);
         //res.json({ Msg: 'Hello World!' });
         return res.status(200).send();
