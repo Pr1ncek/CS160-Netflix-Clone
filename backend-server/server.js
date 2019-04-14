@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const movieRoutes = require('./Routes/routes');
+const userRoutes = require('./Routes/routes');
 
 // Database Configuration
 const MONGO_URI = require('./config/keys').MONGO_URI;
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/movie", movieRoutes);
+app.use("/user", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
