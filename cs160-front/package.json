@@ -2,10 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
-<<<<<<< HEAD
     "jquery": "^3.4.0",
-=======
->>>>>>> 22800d7e50f9be5f286628ead41d251208436f5b
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.4",
