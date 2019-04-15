@@ -57,6 +57,12 @@ ul.header li a {
   display: inline-block;
 }
 
+.color-sevilla 
+{
+	background-color: #FEC71D;
+	border-color: #FEC71D;
+}
+
 .form-container {
 	width: 100%;
 	max-width: 500px;

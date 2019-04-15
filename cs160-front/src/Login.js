@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Jumbotron } from 'react-bootstrap';
+import { Route, NavLink, HashRouter, Link } from 'react-router-dom';
 import './Style.css'
 
 
@@ -7,6 +8,7 @@ class Login extends Component {
 	submitLogin(e) {}
 	render() {
 		return (
+			<HashRouter>
 			<Jumbotron className="form-container">
 			<h1 className="text-center">Log In</h1>
 				<Form>
@@ -19,12 +21,12 @@ class Login extends Component {
 					<Form.Label>Password</Form.Label>
 					<Form.Control type="password" placeholder="Enter Password"/>
 					</Form.Group>
-					<Button variant="primary" type="submit" block
+					<Button variant="primary" type="submit" className="color-sevilla" block
 					onClick={this.submitLogin.bind(this)}>Submit</Button>
-					<Form.Text className="text-muted">Don't have an account? <a href="./register">Register Here</a></Form.Text>
-
+					<Form.Text className="text-muted">Don't have an account? <Link to="/register">Register Here</Link></Form.Text>
 				</Form>
 			</Jumbotron>
+			</HashRouter>
 			);
 	}
 }
