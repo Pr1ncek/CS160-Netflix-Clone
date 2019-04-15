@@ -10,18 +10,19 @@ const axios = require("axios");
 class App extends Component {
   
   state = {
-    topTenMovies: []
+    movie: []
   };
 
   componentDidMount() {
-    // Fetch the top 10 list of movies
+    // id = 5c919e9dd346841eaf9d1e4b
     axios.get('/movie')
       .then(res => {
         console.log(res.data);
-        this.setState({ topTenMovies: res.data });
+        this.setState({ movie: res.data });
       })
       .catch(err => console.error(err));
   }
+  
   render() {
     return (
       <div id="background-color">
