@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Jumbotron, Image, Row, Col } from 'react-bootstrap';
 import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
+import 'bootstrap/dist/css/bootstrap.css';
 const axios = require("axios");
 
 var user = {
@@ -33,32 +34,15 @@ class Avatar extends React.Component {
 class EditProfile extends Component {
   submitEdit(e) {}
 	cancelEdit(e) {}
-	
-	componentDidMount() {
-    // Fetch userdata
-    axios.get('/user')
-			.then(response => 
-				response.data.results.map(user => ({
-					image: `${user.avatar}`,
-					name: `${user.firstName} ${user.lastName}`,
-					username: `${user.userName}`,
-					email: `${user.email}`,
-					password: `${user.password}`
-				}))
-			)
-      .catch(err => console.error(err));
-  }
-
   render() {
     return(
-      <Jumbotron className="form-container">
-        <Form.Text className="text-muted">Home <a href="./HomepageApp">Page</a></Form.Text>
-        <Row>
+      	<Jumbotron className="form-container">
+					<Row>
           <Col sm={5} md={4} lg={3}>
             <Avatar
               image={user.basicInfo.photo}/>
               <p className="text-center">
-              <a href="./edit-profile">Change Picture</a>
+              <a href="./EditProfile">Change Picture</a>
               </p>
           </Col>
         </Row>
