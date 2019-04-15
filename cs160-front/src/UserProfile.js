@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Tab, Tabs, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
+const axios = require("axios");
 
 var user = {
   basicInfo: {
@@ -12,7 +13,6 @@ var user = {
     photo: blankPhoto,
   }
 }
-
 
 class Avatar extends React.Component {
   render() {
@@ -31,6 +31,32 @@ class Avatar extends React.Component {
 }
 
 class UserProfile extends React.Component {
+  state = {
+    users: [],
+    isLoading: true,
+    errors: null
+  };
+
+  componentDidMount() {
+    // Fetch the top 10 list of movies
+    axios.get('/user')
+      .then(res =>
+        response.data.results.map(user => ({
+          name: `${user.firstName} ${user.lastName}`,
+          username: `${user.username}`,
+          email: `${user.email}`,
+          image: `${user.avatar}`
+        }))
+      )
+      .then(users => {
+        this.setState({
+          users,
+          isLoading: false
+        });
+      })
+      .catch(error => this.setState({ error, isLoading: false }));
+  }
+
   render() {
     return (
     <Container>
