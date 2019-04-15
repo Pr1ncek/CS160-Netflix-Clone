@@ -37,6 +37,7 @@ class UserProfile extends React.Component {
     errors: null
   };
 
+/*
   componentDidMount() {
     // Fetch the top 10 list of movies
     axios.get('/user')
@@ -56,6 +57,7 @@ class UserProfile extends React.Component {
       })
       .catch(error => this.setState({ error, isLoading: false }));
   }
+*/
 
   render() {
     return (
