@@ -15,7 +15,8 @@ class App extends Component {
 
   componentDidMount() {
     // id = 5c919e9dd346841eaf9d1e4b
-    axios.get('/movie?_id=5c919e9dd346841eaf9d1e4b')
+    console.log("Test")
+    axios.get('http://localhost:5000/movie/5c919e9dd346841eaf9d1e4b')
       .then(res => {
         console.log(res.data);
         this.setState({ movie: res.data });

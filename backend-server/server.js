@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const movieRoutes = require('./Routes/routes');
+var cors = require('cors');
 
 // Database Configuration
 const MONGO_URI = require('./config/keys').MONGO_URI;
@@ -11,6 +12,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true }, err => {
 });
 
 const app = express();
+app.use(cors());
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
