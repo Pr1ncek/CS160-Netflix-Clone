@@ -1,3 +1,4 @@
+/*
 import React, { Component } from "react";
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 import Login from './Login';
@@ -26,3 +27,4 @@ class Welcome extends Component {
 }
 
 export default Welcome;
+*/

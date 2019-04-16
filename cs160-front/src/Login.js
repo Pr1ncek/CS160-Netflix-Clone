@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import { Form, Button, Jumbotron } from 'react-bootstrap';
 import { Route, NavLink, HashRouter, Link } from 'react-router-dom';
@@ -31,3 +32,4 @@ class Login extends Component {
 	}
 }
 export default Login;
+*/

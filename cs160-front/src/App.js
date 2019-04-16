@@ -15,14 +15,14 @@ class App extends Component {
 
   componentDidMount() {
     // id = 5c919e9dd346841eaf9d1e4b
-    axios.get('/movie')
+    axios.get('/movie?_id=5c919e9dd346841eaf9d1e4b')
       .then(res => {
         console.log(res.data);
         this.setState({ movie: res.data });
       })
       .catch(err => console.error(err));
   }
-  
+
   render() {
     return (
       <div id="background-color">
