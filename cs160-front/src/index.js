@@ -1,12 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Login from './Login'
-import Register from './Register'
-import UserProfile from './UserProfile'
-import Welcome from './Welcome'
+import Login from './Login';
+import Register from './Register';
+import UserProfile from './UserProfile';
+import Welcome from './Welcome';
 import * as serviceWorker from './serviceWorker';
 import HomepageApp from './HomepageApp';
 

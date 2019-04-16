@@ -4,24 +4,42 @@ import './App.css';
 import VideoComponent from './VideoComponent';
 import InformationComponent from './InformationComponent';
 import './MoviePage.css';
-const axios = require("axios");
-// import axios from 'axios';
+import axios from 'axios';
+import setAuthToken from './set-auth-token';
+import jwt_decode from 'jwt-decode';
+
+const checkAuthenticationStatus = () => {
+  // check for token
+  if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
+    const decoded = jwt_decode(localStorage.jwtToken);
+    // check for expiration
+    const currentTime = Date.now() / 1000;
+    if (decoded.exp < currentTime) {
+      // logic to logout user
+    }
+    return decoded;
+  }
+  return false;
+};
 
 class App extends Component {
-  
   state = {
-    movie: []
+    topTenMovies: [],
+    currentUser: {}
   };
 
   componentDidMount() {
-    // id = 5c919e9dd346841eaf9d1e4b
-    console.log("Test")
-    axios.get('http://localhost:5000/movie/5c919e9dd346841eaf9d1e4b')
+    axios
+      .get('/movie')
       .then(res => {
         console.log(res.data);
-        this.setState({ movie: res.data });
+        this.setState({ topTenMovies: res.data });
       })
       .catch(err => console.error(err));
+
+    const currentUser = checkAuthenticationStatus();
+    if (currentUser) this.setState({ currentUser });
   }
 
   render() {
