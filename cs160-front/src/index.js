@@ -10,11 +10,11 @@ import Welcome from './Welcome'
 import * as serviceWorker from './serviceWorker';
 import HomepageApp from './HomepageApp';
 
-//ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 //ReactDOM.render(<HomepageApp />, document.getElementById('root'));
 //ReactDOM.render(<Login />, document.getElementById('root'));
 //ReactDOM.render(<Register />, document.getElementById('root'));
-ReactDOM.render(<UserProfile />, document.getElementById('root'));
+//ReactDOM.render(<UserProfile />, document.getElementById('root'));
 //ReactDOM.render(<Welcome />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
