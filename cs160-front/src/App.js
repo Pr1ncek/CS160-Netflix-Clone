@@ -4,18 +4,18 @@ import './App.css';
 import VideoComponent from './VideoComponent';
 import InformationComponent from './InformationComponent';
 import './MoviePage.css';
-const axios = require("axios");
+const axios = require('axios');
 // import axios from 'axios';
 
 class App extends Component {
-  
   state = {
     movie: []
   };
 
   componentDidMount() {
     // id = 5c919e9dd346841eaf9d1e4b
-    axios.get('/movie?_id=5c919e9dd346841eaf9d1e4b')
+    axios
+      .get('/movie?_id=5c919e9dd346841eaf9d1e4b')
       .then(res => {
         console.log(res.data);
         this.setState({ movie: res.data });
