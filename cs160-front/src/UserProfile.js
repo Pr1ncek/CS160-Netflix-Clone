@@ -32,32 +32,20 @@ class Avatar extends React.Component {
 
 class UserProfile extends React.Component {
   state = {
-    users: [],
-    isLoading: true,
-    errors: null
+    user: {},
+    history: [],
+    comments: []
   };
 
-/*
   componentDidMount() {
     // Fetch the top 10 list of movies
     axios.get('/user')
-      .then(res =>
-        response.data.results.map(user => ({
-          name: `${user.firstName} ${user.lastName}`,
-          username: `${user.username}`,
-          email: `${user.email}`,
-          image: `${user.avatar}`
-        }))
-      )
-      .then(users => {
-        this.setState({
-          users,
-          isLoading: false
-        });
+      .then(res =>{
+        console.log(res.data);
+        this.setState({ user: res.data });
       })
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(err => console.error(err));
   }
-*/
 
   render() {
     return (
