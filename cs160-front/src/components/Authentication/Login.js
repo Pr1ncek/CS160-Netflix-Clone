@@ -10,6 +10,19 @@ class Login extends Component {
     errors: {}
   };
 
+  componentDidMount() {
+    console.log(this.props);
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -31,21 +44,6 @@ class Login extends Component {
         this.setState({ errors: err.response.data });
       });
   };
-
-  //   componentWillReceiveProps(newProps) {
-  //     if (newProps.auth.isAuthenticated) {
-  //       this.props.history.push('/dashboard');
-  //     }
-  //     if (newProps.errors) {
-  //       this.setState({ errors: newProps.errors });
-  //     }
-  //   }
-
-  //   componentDidMount() {
-  //     if (this.props.auth.isAuthenticated) {
-  //       this.props.history.push('/dashboard');
-  //     }
-  //   }
 
   render() {
     const { errors } = this.state;

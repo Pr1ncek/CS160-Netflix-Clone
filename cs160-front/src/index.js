@@ -13,9 +13,9 @@ import Navbar from './components/Navbar/Navbar';
 
 const checkAuthenticationStatus = () => {
   // check for token
-  if (localStorage.jwtToken) {
-    setAuthToken(localStorage.jwtToken);
-    const decoded = jwt_decode(localStorage.jwtToken);
+  if (localStorage.JWT) {
+    setAuthToken(localStorage.JWT);
+    const decoded = jwt_decode(localStorage.JWT);
     // check for expiration
     const currentTime = Date.now() / 1000;
     if (decoded.exp < currentTime) {
@@ -39,18 +39,30 @@ class Root extends React.Component {
 
   setCurrentUser = user => this.setState({ currentUser: user, isAuthenticated: true });
 
+  logout = () => {
+    localStorage.removeItem('JWT');
+    setAuthToken(false);
+    this.setState({ currentUser: {}, isAuthenticated: false });
+  };
+
   render() {
+    const { currentUser, isAuthenticated } = this.state;
     return (
       <React.Fragment>
         <Router>
-          <Navbar />
+          <Navbar logout={this.logout} isAuthenticated={isAuthenticated} currentUser={currentUser} />
           <Switch>
             <Route exact path="/" component={App} />
             <Route
               path="/login"
-              render={props => <Login setCurrentUser={this.setCurrentUser} {...props} />}
+              render={props => (
+                <Login setCurrentUser={this.setCurrentUser} isAuthenticated={isAuthenticated} {...props} />
+              )}
             />
-            <Route path="/register" component={Register} />
+            <Route
+              path="/register"
+              render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
+            />
           </Switch>
         </Router>
       </React.Fragment>

@@ -19,9 +19,15 @@ class Navbar extends React.Component {
     );
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-        <span className="navbar-text mr-3">Prince</span>
         <li className="nav-item">
-          <button className="btn btn-outline-danger px-3 text-white">Logout</button>
+          <Link className="nav-link mr-3" to="/myaccount">
+            My Account
+          </Link>
+        </li>
+        <li className="nav-item">
+          <button className="btn btn-outline-danger px-3 text-white" onClick={this.props.logout}>
+            Logout
+          </button>
         </li>
       </ul>
     );
@@ -37,7 +43,7 @@ class Navbar extends React.Component {
               </Link>
             </li>
           </ul>
-          {guestLinks}
+          {this.props.isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
     );

@@ -28,25 +28,22 @@ class Register extends Component {
       });
   };
 
-  //   componentWillReceiveProps(newProps) {
-  //     if (newProps.auth.isAuthenticated) {
-  //       this.props.history.push('/dashboard');
-  //     }
-  //     if (newProps.errors) {
-  //       this.setState({ errors: newProps.errors });
-  //     }
-  //   }
+  componentDidMount() {
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
 
-  //   componentDidMount() {
-  //     if (this.props.auth.isAuthenticated) {
-  //       this.props.history.push('/dashboard');
-  //     }
-  //   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
 
   render() {
     const { errors } = this.state;
     return (
-      <div className="login mt-5 pt-5">
+      <div className="register mt-5 pt-5">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
