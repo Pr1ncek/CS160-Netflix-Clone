@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Jumbotron, Image, Row, Col } from 'react-bootstrap';
 import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
-import 'bootstrap/dist/css/bootstrap.css';
-const axios = require("axios");
+import axios from 'axios';
 
 var user = {
   basicInfo: {
@@ -32,6 +31,19 @@ class Avatar extends React.Component {
 }
 
 class EditProfile extends Component {
+	state = {
+    user: {}
+  };
+
+  componentDidMount() {
+    axios.get('/user')
+      .then(res =>{
+        console.log(res.data);
+        this.setState({ user: res.data });
+      })
+      .catch(err => console.error(err));
+  }
+
   submitEdit(e) {}
 	cancelEdit(e) {}
   render() {
