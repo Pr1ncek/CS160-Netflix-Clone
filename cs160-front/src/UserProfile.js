@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Image, Tab, Tabs, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
-const axios = require("axios");
+import axios from 'axios';
 
 var user = {
   basicInfo: {
@@ -38,7 +38,6 @@ class UserProfile extends React.Component {
   };
 
   componentDidMount() {
-    // Fetch the top 10 list of movies
     axios.get('/user')
       .then(res =>{
         console.log(res.data);
