@@ -19,7 +19,9 @@ const checkAuthenticationStatus = () => {
     // check for expiration
     const currentTime = Date.now() / 1000;
     if (decoded.exp < currentTime) {
-      // logic to logout user
+      localStorage.removeItem('JWT');
+      setAuthToken(false);
+      return false;
     }
     return decoded;
   }
