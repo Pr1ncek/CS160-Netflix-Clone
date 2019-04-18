@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const movieRoutes = require('./Routes/routes');
 const authRoutes = require('./Controller/auth');
+const movieRoutes = require('./Controller/movie');
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.json({ Msg: 'Hello World!' });
 });
 
-app.use('/movie', movieRoutes);
+app.use('/api/movies', movieRoutes);
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5500;

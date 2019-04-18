@@ -1,36 +1,52 @@
-//Controller
+const express = require('express');
+const router = express.Router();
+
 const Movie = require('../Model/movie');
 const RATING_AVERAGE_VALUE = 8.0;
 
-//Route: http://localhost:5000/movie/
-exports.getTopTenMovies = (req, res) => {
-    Movie.find({vote_average: {$gt: RATING_AVERAGE_VALUE}}).limit(10).then(result => {
-        res.send(result);
-        return res.status(200).send();
-    }).catch(err => {
-        console.log(err);
-        return res.status(401).send();
-    });
-};
-
-//Route: http://localhost:5000/movie/search
-exports.searchMovie = (req, res) => {
-    //ADD MORE OPTIONS FOR SEARCHING MOVIE SUCH AS: Actor, etc..
-    Movie.find({$or: [{title: req.body.title}, { keywords: { $regex: '.*' + req.body.title + '.*' } }]})
+// @route   GET api/movies/topmovies
+// @desc    search for a movie
+// @access  Public
+router.get('/topmovies', (req, res) => {
+  Movie.find({ vote_average: { $gt: RATING_AVERAGE_VALUE } })
+    .limit(50)
     .then(result => {
-        return res.status(200).send(result);
-    }).catch(err => {
-        console.log(err);
-        return res.status(401).send(err);
+      return res.status(200).json(result);
+    })
+    .catch(err => {
+      console.err(err);
+      return res.status(401).send(err);
     });
-};
+});
 
-//Route: http://localhost:5000/movie/"ID NUMBER HERE"
-exports.getMovieID = (req, res) => {
-    Movie.findById(req.body.id).then(result => {
-        return res.status(200).send(result);
-    }).catch(err => {
-        console.log(err);
-        return res.status(401).send(err);
+// @route   GET api/movies/search
+// @desc    search for a movie
+// @access  Public
+router.get('/search', (req, res) => {
+  //ADD MORE OPTIONS FOR SEARCHING MOVIE SUCH AS: Actor, etc..
+  const keyword = req.body.title.trim().toLowerCase();
+  Movie.find({ $or: [{ title: keyword }, { keywords: { $regex: '.*' + keyword + '.*' } }] })
+    .limit(25)
+    .then(result => {
+      return res.status(200).json(result);
+    })
+    .catch(err => {
+      console.err(err);
+      return res.status(404).json(err);
     });
-};
+});
+
+// @route   GET api/movies/searchbyid
+// @desc    search for a movie by its id
+// @access  Public
+router.get('/searchbyid', (req, res) => {
+  Movie.findById(req.body.id)
+    .then(result => {
+      return res.status(200).json(result);
+    })
+    .catch(err => {
+      console.err(err);
+      return res.status(401).json(err);
+    });
+});
+module.exports = router;

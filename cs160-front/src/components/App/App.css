@@ -1,3 +1,25 @@
 .movie-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s ease-out;
+}
+.movie-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* .movie-card:hover h4 {
+  transition: all 0.3s ease-out;
+  padding-top: 30%;
+  font-size: 180%;
+} */
+
+.black-box {
+  color: #fff;
+  text-align: center;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.black-box h4 {
+  padding-top: 35%;
 }

@@ -35,8 +35,10 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="collapse navbar-collapse container" id="mobile-nav">
           <ul className="navbar-nav mr-auto">
-            <li className="navbar-brand">Notflix</li>
-            <li className="nav-item">
+            <li className="navbar-brand" style={{ fontWeight: 900, fontSize: '180%' }}>
+              Notflix
+            </li>
+            <li className="nav-item ml-4 pt-2">
               <Link className="nav-link" to="/">
                 {' '}
                 Home
