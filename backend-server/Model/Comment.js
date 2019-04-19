@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 // Create Schema
 const commentSchema = new mongoose.Schema({
-  movie: {
+  movieId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'movie'
+    ref: 'Movie'
   },
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'User'
   },
-  text: { type: String },
-  updated: {
+  text: { type: String, required: true },
+  created: {
     type: Date,
     default: Date.now
   }
