@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Tab, Tabs, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
+import setAuthToken from '../../utils/set-auth-token';
 import axios from 'axios';
 
 var user = {
@@ -30,13 +31,33 @@ class Avatar extends React.Component {
   }
 }
 
+const checkAuthenticationStatus = () => {
+  // check for token
+  if (localStorage.JWT) {
+    setAuthToken(localStorage.JWT);
+    const decoded = jwt_decode(localStorage.JWT);
+    // check for expiration
+    const currentTime = Date.now() / 1000;
+    if (decoded.exp < currentTime) {
+      localStorage.removeItem('JWT');
+      setAuthToken(false);
+      return false;
+    }
+    return decoded;
+  }
+  return false;
+};
+
 class UserProfile extends React.Component {
   state = {
-    user: {},
+    currentUser: {},
+    isAuthenticated: false,
     isLoaded: false
   };
 
   componentDidMount() {
+    const currentUser = checkAuthenticationStatus();
+    if (currentUser) this.setState({ currentUser, isAuthenticated: true });
     axios.get('/user')
       .then(res =>{
         console.log(res.data);
