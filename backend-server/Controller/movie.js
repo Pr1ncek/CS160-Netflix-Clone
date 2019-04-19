@@ -49,4 +49,17 @@ router.get('/searchbyid', (req, res) => {
       return res.status(401).json(err);
     });
 });
+
+// @route GET api/movies/comments
+// @desc search for comments by its movieId, grab user's name
+// @access Public
+router.get('/comments', = (req, res) => {
+    Comment.find ({movieID : req.body.movieId}).populate('userID').then(result =>{
+        return res.status(200).send(result);
+    }).catch(err => {
+        console.log(err);
+        return res.status(401).send(err);
+    });
+};
+
 module.exports = router;
