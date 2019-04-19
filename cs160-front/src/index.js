@@ -10,6 +10,8 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
+//import UserProfile from './components/User/UserProfile';
+//import EditProfile from './components/User/EditProfile';
 
 const checkAuthenticationStatus = () => {
   // check for token
