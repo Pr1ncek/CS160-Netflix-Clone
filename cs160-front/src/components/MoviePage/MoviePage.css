@@ -1,0 +1,21 @@
+#movie
+{
+	position: absolute;
+	align: middle;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.videoWrapper 
+{
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 100;
+}
+
+.text-white{text-decoration-color: white;}
+
+#background-color { background-color: black; }
