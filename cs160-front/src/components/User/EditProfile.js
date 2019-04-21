@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Form, Button, Jumbotron, Image, Row, Col } from 'react-bootstrap';
-import blankPhoto from "./images/AvatarImg.png";
 import "./Style.css";
 import axios from 'axios';
+//import avatarImg from './images/AvatarImg.png'
+
 
 var user = {
   basicInfo: {
@@ -10,9 +10,10 @@ var user = {
     lastName: "Nadir",
     username: "brownjoey",
     email: "abed.nadir@greendale.com",
-    photo: blankPhoto,
+    //photo: blankPhoto,
   }
 }
+
 
 class Avatar extends React.Component {
   render() {
@@ -25,7 +26,7 @@ class Avatar extends React.Component {
     if (!image) return null;
     
     return (
-        <Image src={this.props.image} thumbnail/> 
+        <img src={this.props.image} class="img-thumbnail"/> 
     );
   }
 }
@@ -35,70 +36,92 @@ class EditProfile extends Component {
     user: {}
   };
 
-  componentDidMount() {
-    axios.get('/user')
-      .then(res =>{
-				console.log(res.data);
-				const user = res.data;
-        this.setState({ user });
-      })
-      .catch(err => console.error(err));
-  }
 
   submitEdit(e) {}
 	cancelEdit(e) {}
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
+    const { isAuthenticated, currentUser } = this.props;
     return(
-      	<Jumbotron className="form-container">
-					<Row>
-          <Col sm={5} md={4} lg={3}>
-            <Avatar
-              image={user.basicInfo.photo}/>
-              <p className="text-center">
-              <a href="./EditProfile">Change Picture</a>
-              </p>
-          </Col>
-        </Row>
-				<h1 className="text-center">Edit Profile</h1>
-					<Form>
-						<Form.Row>
-						<Col>
-						<Form.Group controlId="formEditFirstName">
-							<Form.Label>First Name</Form.Label>
-							<Form.Control type="text" placeholder={user.basicInfo.firstName}/>
-						</Form.Group>
-						</Col>
+      <div className="mt-5 pt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center">Edit Profile</h1>
+              <p className="lead text-center mb-4">Edit your Notflix profile</p>
+              <div className="row">
+              <div className="col-md-4">
+              <img src={currentUser.avatar} className="img-thumbnail"></img>
+              <p className="lead text-center mb-4">Edit Avatar</p>
+              </div>
+              <div className="col-md-8">
+              <form>
+                <div className="form-group">
+                  <input 
+                  className="form-control"
+                  type="text"
+                  placeholder="First Name"
+                  name="firstName"
+                  value={currentUser.firstName}
+                  onChange={this.onChange}
+                  />
+                </div>
 
-						<Col>	
-						<Form.Group controlId="formEditLastName">
-							<Form.Label>Last Name</Form.Label>
-							<Form.Control type="text" placeholder={user.basicInfo.lastName}/> 
-						</Form.Group>
-						</Col>
-						</Form.Row>
+                <div className="form-group">
+                  <input 
+                  className="form-control"
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={currentUser.lastName}
+                  onChange={this.onChange}
+                  />
+                </div>
 
-						<Form.Group controlId="formEditEmail">
-							<Form.Label>Email Address</Form.Label>
-							<Form.Control type="email" placeholder={user.basicInfo.email}/> 
-						</Form.Group>
+                <div className="form-group">
+                  <input 
+                  className="form-control"
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={currentUser.email}
+                  onChange={this.onChange}
+                  />
+                </div>
 
-						<Form.Group controlId="formEditPassword">
-							<Form.Label>Password</Form.Label>
-							<Form.Control type="password" placeholder="Change Password"/> 
-						</Form.Group>
+                <div className="form-group">
+                  <input 
+                  className="form-control"
+                  type="password"
+                  placeholder="Current Password"
+                  name="currentPassword"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                  />
+                </div>
 
-						<Button variant="primary" type="submit" block 
-						onClick={this.submitEdit.bind(this)}>
-						Update
-						</Button>
-
-						<Button variant="primary" type="submit" block 
-						onClick={this.cancelEdit.bind(this)}>
-						Cancel
-						</Button>
-
-					</Form>
-				</Jumbotron>
+                <div className="form-group">
+                  <input 
+                  className="form-control"
+                  type="password"
+                  placeholder="New Password"
+                  name="newPassword"
+                  value={this.state.newPassword}
+                  onChange={this.onChange}
+                  />
+                </div>
+              <button type="button" className="btn btn-danger btn-block mt-4">Update Profile</button>
+              </form>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
