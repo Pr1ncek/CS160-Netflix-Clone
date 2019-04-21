@@ -16,7 +16,7 @@ class App extends Component {
         console.log(res.data);
         this.setState({ top50Movies: res.data });
         this.setState({ isLoaded: true });
-        this.getMoviePosters(res.data);
+        // this.getMoviePosters(res.data);
       })
       .catch(err => console.error(err));
   }
@@ -60,14 +60,14 @@ class App extends Component {
                   className="card movie-card"
                   style={{ width: '18rem', margin: '10px', marginBottom: '70px', paddingBottom: '1%' }}
                 >
-                  <img
+                  {/* <img
                     src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
                     className="card-img-top"
                     alt={movie.title}
-                  />
-                  {/* <div className="black-box">
+                  /> */}
+                  <div className="black-box">
                     <h4 className="pl-2 pr-2">{movie.title}</h4>
-                  </div> */}
+                  </div>
                   <div className="card-body">
                     <p className="card-text">
                       Released:<strong> {movie.release_date}</strong>

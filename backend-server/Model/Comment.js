@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const commentSchema = new mongoose.Schema({
   movieId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Movie'
+    ref: 'Movie',
+    required: true
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
   text: { type: String, required: true },
-  created: {
+  updated: {
     type: Date,
     default: Date.now
   }
