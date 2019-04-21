@@ -10,7 +10,7 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
-//import UserProfile from './components/User/UserProfile';
+import UserProfile from './components/User/UserProfile';
 //import EditProfile from './components/User/EditProfile';
 
 const checkAuthenticationStatus = () => {
@@ -66,6 +66,14 @@ class Root extends React.Component {
             <Route
               path="/register"
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
+            />
+            <Route
+              path="/UserProfile"
+              render={props => <UserProfile currentUser={currentUser} isAuthenticated={isAuthenticated} />}
+            />
+            <Route
+              path="/EditProfile"
+              render={props => <EditProfile currentUser={currentUser} isAuthenticated={isAuthenticated} />}
             />
           </Switch>
         </Router>
