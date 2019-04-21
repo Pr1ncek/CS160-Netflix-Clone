@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import searchbar from '../Searchcomponent/searchbar.js';
+ 
 
 class Navbar extends React.Component {
   render() {
@@ -44,9 +46,10 @@ class Navbar extends React.Component {
                 Home
               </Link>
             </li>
-          </ul>
+          </ul>         
           {this.props.isAuthenticated ? authLinks : guestLinks}
         </div>
+        <searchbar/>
       </nav>
     );
   }
