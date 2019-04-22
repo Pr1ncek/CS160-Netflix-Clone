@@ -24,9 +24,11 @@ class UserProfile extends React.Component {
               <div className="row">
                 <div class="col-md-6 border rounded">
                   <p className="lead text-center mb-4">History</p>
+                  {/* <p className="text-left ml-2 ">{currentUser.history}</p> */}
                 </div>
                 <div class="col-md-6 border rounded">
                   <p className="lead text-center mb-4">Comments</p>
+                  {/* <p className="text-left ml-2">{currentUser.comments}</p> */}
                 </div>
               </div>
             </div>
