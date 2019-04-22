@@ -10,6 +10,7 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
+import Search from './components/Searchcomponent/Search';
 
 const checkAuthenticationStatus = () => {
   // check for token
@@ -55,6 +56,7 @@ class Root extends React.Component {
           <Navbar logout={this.logout} isAuthenticated={isAuthenticated} currentUser={currentUser} />
           <Switch>
             <Route exact path="/" component={App} />
+            <Route path="/search" component={Search} />
             <Route
               path="/login"
               render={props => (

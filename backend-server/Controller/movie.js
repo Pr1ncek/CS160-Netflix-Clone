@@ -24,7 +24,9 @@ router.get('/topmovies', (req, res) => {
 // @access  Public
 router.get('/search', (req, res) => {
   //ADD MORE OPTIONS FOR SEARCHING MOVIE SUCH AS: Actor, etc..
-  const keyword = req.body.title.trim().toLowerCase();
+  //const keyword = req.body.title.trim().toLowerCase();
+  var keyword = req.query.keyword.toLowerCase();
+  //console.log(keyword);
   Movie.find({ $or: [{ title: keyword }, { keywords: { $regex: '.*' + keyword + '.*' } }] })
     .limit(25)
     .then(result => {

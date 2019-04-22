@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App/App.css';
 import axios from 'axios';
-import Loader from '../Loader/Loader';
 
 
-class App extends Component {
+class Search extends Component {
   state = {
-    top50Movies: [],
+    Movies: [],
     moviePosters: {},
     isLoaded: false
   };
 
   componentDidMount() {
     axios
-      .get('/api/movies/topmovies')
+      .get('/api/movies/search' + window.location.search)
       .then(res => {
         console.log(res.data);
-        this.setState({ top50Movies: res.data });
+        this.setState({ Movies: res.data });
         this.setState({ isLoaded: true });
         // this.getMoviePosters(res.data);
       })
@@ -44,7 +43,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoaded, top50Movies, moviePosters } = this.state;
+    const { isLoaded, Movies, moviePosters } = this.state;
     if (!isLoaded)
       return (
         <div class="d-flex justify-content-center" style={{ marginTop: '370px' }}>
@@ -57,7 +56,7 @@ class App extends Component {
       <div className="pt-5" style={{ paddingLeft: '8.5%', marginTop: '70px' }}>
         <div className="row">
           {isLoaded &&
-            top50Movies.map(movie => {
+            Movies.map(movie => {
               return (
                 <div
                   key={movie.id}
@@ -93,4 +92,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Search;
