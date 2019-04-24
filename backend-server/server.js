@@ -35,7 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/user', userRoutes);
 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log('Server is live!');
 });
