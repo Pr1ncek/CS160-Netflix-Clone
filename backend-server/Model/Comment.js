@@ -2,15 +2,17 @@ const mongoose = require('mongoose');
 
 // Create Schema
 const commentSchema = new mongoose.Schema({
-  movie: {
+  movieId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'movie'
+    ref: 'Movie',
+    required: true
   },
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'User',
+    required: true
   },
-  text: { type: String },
+  text: { type: String, required: true },
   updated: {
     type: Date,
     default: Date.now

@@ -11,6 +11,10 @@ import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
 import Search from './components/Searchcomponent/Search';
+import MoviePage from './/components/MoviePage/MoviePage'
+//import UserProfile from './components/User/UserProfile';
+//import EditProfile from './components/User/EditProfile';
+
 
 const checkAuthenticationStatus = () => {
   // check for token
@@ -66,6 +70,11 @@ class Root extends React.Component {
             <Route
               path="/register"
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
+            />
+
+            <Route
+              path="/movie"
+              render={props => (<MoviePage currentUser={currentUser} />)}
             />
           </Switch>
         </Router>
