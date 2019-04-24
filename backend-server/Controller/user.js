@@ -1,19 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../Model/User');
+const Profile = require('../Model/Profile');
 
 
-// @route   GET api/user/:userid
+// @route   GET api/users/:userid
 // @desc    grab a user by its id from DB
 // @access  Public
 router.get('/userid', (req, res) => {
     User.findById(req.body.userID)
       .then(result => {
-        return res.status(200).json(result);
+        return res.status(200).json({
+			firstName: result.firstName,
+			lastName: result.lastName,
+			avatar: result.avatar,
+			history: result.history,
+			favorites: result.favorites
+		});
       })
       .catch(err => {
         console.err(err);
-        return res.status(400).json(err);
+        return res.status(401).json(err);
       });
   });
 
