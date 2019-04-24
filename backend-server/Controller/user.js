@@ -3,6 +3,20 @@ const router = express.Router();
 const User = require('../Model/User');
 
 
+// @route   GET api/user/:userid
+// @desc    grab a user by its id from DB
+// @access  Public
+router.get('/userid', (req, res) => {
+    User.findById(req.body.userID)
+      .then(result => {
+        return res.status(200).json(result);
+      })
+      .catch(err => {
+        console.err(err);
+        return res.status(400).json(err);
+      });
+  });
+
 // @route PUT api/users/saveToHistory
 // @desc save a movie to the user's history
 // @access Public
