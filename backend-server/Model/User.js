@@ -25,7 +25,17 @@ const userSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
-  }
+  },
+  history: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Movie',
+    default: []
+  }],
+  favorites: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Movie',
+    default: []
+  }]
 });
 
 const User = mongoose.model('User', userSchema);
