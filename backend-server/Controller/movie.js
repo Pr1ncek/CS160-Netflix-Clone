@@ -8,7 +8,7 @@ const RATING_AVERAGE_VALUE = 8.0;
 // @access  Public
 router.get('/topmovies', (req, res) => {
   Movie.find({ vote_average: { $gt: RATING_AVERAGE_VALUE } })
-    .limit(10)
+    .limit(12)
     .then(result => {
       return res.status(200).json(result);
     })
