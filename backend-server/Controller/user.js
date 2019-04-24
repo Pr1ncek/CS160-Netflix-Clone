@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../Model/User');
-const Profile = require('../Model/Profile');
 
-
-// @route   GET api/users/:userid
+// @route   GET api/user/:id
 // @desc    grab a user by its id from DB
 // @access  Public
-router.get('/userid', (req, res) => {
-    User.findById(req.body.userID)
-      .then(result => {
+router.get('/:id', (req, res) => {
+	var conditions = {_id: req.params.id};
+    User.findById(conditions).then(result => {
         return res.status(200).json({
 			firstName: result.firstName,
 			lastName: result.lastName,
@@ -24,7 +22,7 @@ router.get('/userid', (req, res) => {
       });
   });
 
-// @route PUT api/users/saveToHistory
+// @route PUT api/user/saveToHistory
 // @desc save a movie to the user's history
 // @access Public
 router.put('/saveToHistory', (req, res) => {
@@ -49,7 +47,7 @@ router.put('/saveToHistory', (req, res) => {
 	});
 });
 
-// @route PUT api/users/addToFavorites
+// @route PUT api/user/addToFavorites
 // @desc save a movie to the user's favorites
 // @access Public
 router.put('/addToFavorites', (req, res) => {
@@ -70,7 +68,7 @@ router.put('/addToFavorites', (req, res) => {
 	});
 });
 
-// @route DELETE api/users/removeFromFavorites
+// @route DELETE api/user/removeFromFavorites
 // @desc remove a movie frome the user's favorites
 // @access Public
 router.delete("/removeFromFavorites", (req, res) => {
