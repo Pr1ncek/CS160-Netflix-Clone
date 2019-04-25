@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const authRoutes = require('./Controller/auth');
 const movieRoutes = require('./Controller/movie');
-const commentRoutes = require("./Controller/comment")
+const commentRoutes = require("./Controller/comment");
 
 const app = express();
 

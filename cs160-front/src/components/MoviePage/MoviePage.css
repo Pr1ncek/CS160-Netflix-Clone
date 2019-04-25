@@ -8,14 +8,37 @@
 	height: 100%;
 }
 
+
 .videoWrapper 
 {
+
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
 	height: 100;
 }
 
-.text-white{text-decoration-color: white;}
+#comments
+{
+	overflow: scroll;
+	height: 300px;
+	width: 50%;
+	font-size: 12;
+}
+
+#information
+{
+	font-size: 15pt;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+/*
+div:hover 
+{
+    -webkit-transform: scale(1.8) rotate(0.01deg);
+    transform: scale(1.8) rotate(0.01deg);
+}
+*/
 
 #background-color { background-color: black; }
