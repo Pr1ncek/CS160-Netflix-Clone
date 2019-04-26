@@ -1,9 +1,28 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import './UserProfile.css';
+=======
+import axios from 'axios';
+>>>>>>> 95df2018661330e9587c01c9c22d4db514032035
 
 class UserProfile extends React.Component {
+  state = {
+    comments: []
+  };
+
+  componentDidMount() {
+    axios
+      .get('/api/comments', this.props.currentUser._id)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ comments: res.data });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     const { currentUser} = this.props;
+    const { comments } = this.state
     return (
       <div className="UserProfile mt-5 pt-5">
         <div className="container">
@@ -23,13 +42,41 @@ class UserProfile extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div class="col-md-6 border rounded">
+                <div class="col-md-4 border rounded">
                   <p className="lead text-center mb-4">History</p>
-                  {/* <p className="text-left ml-2 ">{currentUser.history}</p> */}
+                  <div className="row">
+                    {currentUser.history.map(movie => {
+                      return (
+                        <div class="border rounded">
+                          <p className="text-left">{movie}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div class="col-md-6 border rounded">
+                <div class="col-md-4 border rounded">
+                  <p className="lead text-center mb-4">Favorites</p>
+                  <div className="row">
+                    {currentUser.favorites.map(movie => {
+                      return (
+                        <div class="border rounded">
+                          <p className="text-left">{movie}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div class="col-md-4 border rounded">
                   <p className="lead text-center mb-4">Comments</p>
-                  {/* <p className="text-left ml-2">{currentUser.comments}</p> */}
+                  <div className="row">
+                    {comments.map(comment => {
+                      return (
+                        <div class="border rounded">
+                          <p className="text-left">{comment}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
