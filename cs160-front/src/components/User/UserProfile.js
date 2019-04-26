@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import './UserProfile.css';
-=======
 import axios from 'axios';
->>>>>>> 95df2018661330e9587c01c9c22d4db514032035
-
 class UserProfile extends React.Component {
   state = {
     comments: []
