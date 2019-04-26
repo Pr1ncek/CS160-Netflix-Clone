@@ -4,45 +4,23 @@ import axios from 'axios';
 //import avatarImg from './images/AvatarImg.png'
 
 
-var user = {
-  basicInfo: {
-    firstName: "Abed",
-    lastName: "Nadir",
-    username: "brownjoey",
-    email: "abed.nadir@greendale.com",
-    //photo: blankPhoto,
-  }
-}
-
-
-class Avatar extends React.Component {
-  render() {
-    var image = this.props.image,
-        style = {
-          width: 50,
-          height: 50
-        }; 
-    
-    if (!image) return null;
-    
-    return (
-        <img src={this.props.image} class="img-thumbnail"/> 
-    );
-  }
-}
-
 class EditProfile extends Component {
-	state = {
-    user: {}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      avatar: ''
+    };
+  }
 
-
-  submitEdit(e) {}
-	cancelEdit(e) {}
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
 
   render() {
     const { isAuthenticated, currentUser } = this.props;
@@ -64,9 +42,9 @@ class EditProfile extends Component {
                   <input 
                   className="form-control"
                   type="text"
-                  placeholder="First Name"
+                  placeholder={currentUser.firstName}
                   name="firstName"
-                  value={currentUser.firstName}
+                  value={this.state.firstName}
                   onChange={this.onChange}
                   />
                 </div>
@@ -75,9 +53,9 @@ class EditProfile extends Component {
                   <input 
                   className="form-control"
                   type="text"
-                  placeholder="Last Name"
+                  placeholder={currentUser.lastName}
                   name="lastName"
-                  value={currentUser.lastName}
+                  value={this.state.lastName}
                   onChange={this.onChange}
                   />
                 </div>
@@ -86,9 +64,9 @@ class EditProfile extends Component {
                   <input 
                   className="form-control"
                   type="email"
-                  placeholder="Email"
+                  placeholder={currentUser.email}
                   name="email"
-                  value={currentUser.email}
+                  value={this.state.email}
                   onChange={this.onChange}
                   />
                 </div>
@@ -114,7 +92,7 @@ class EditProfile extends Component {
                   onChange={this.onChange}
                   />
                 </div>
-              <button type="button" className="btn btn-danger btn-block mt-4">Update Profile</button>
+              <input type="submit" className="btn btn-danger btn-block mt-4"/>
               </form>
             </div>
             </div>

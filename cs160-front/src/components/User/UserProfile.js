@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './UserProfile.css';
 
 class UserProfile extends React.Component {
   render() {
@@ -8,17 +9,17 @@ class UserProfile extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-8 text-center">User Profile</h1>
+              <h1 className="display-4 text-center">User Profile</h1>
               <p className="lead text-center mb-4">Your Notflix Account</p>
-              <div className="row border rounded">
+              <div className="row border rounded profile-card">
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  <img src={currentUser.avatar} class="img-fluid mt-4"></img>
-                  <a href="/EditProfile" class="nav-link ml-4">Edit Profile</a>
+                  <img src={currentUser.avatar} class="img-fluid mt-4 img-thumbnail"></img>
                 </div>
                 <div class="col-md">
-                  <ul className="lead mt-4 mb-4">Name: {currentUser.firstName} {currentUser.lastName}</ul>
-                  <ul className="lead mb-4">Email: {currentUser.email}</ul>  
+                  <ul className="lead mt-4 mb-4 font-weight-bold"><h2>{currentUser.firstName} {currentUser.lastName}</h2></ul>
+                  <ul className="lead mb-4">Email: {currentUser.email}</ul> 
+                  <ul><button type="button" className="btn btn-danger block"><a href="/EditProfile" class="nav-link text-white">Edit Profile</a></button></ul>
                 </div>
               </div>
               <div className="row">
