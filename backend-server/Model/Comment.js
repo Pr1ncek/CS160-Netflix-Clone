@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
+const Movie = require('../Model/movie');
+const User = require('../Model/User');
+
 
 // Create Schema
 const commentSchema = new mongoose.Schema({
-  movieId: {
+  movie: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Movie',
     required: true
   },
-  userId: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
