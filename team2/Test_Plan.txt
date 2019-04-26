@@ -1,0 +1,65 @@
+Registration
+  Input: name, email, password
+  Steps: 
+    Goto Home (auto)
+    Click on Register
+    Enter INPUT
+    Submit
+    Goto Home (auto)
+    Check logged in account
+    Goto MyAccount
+    Check user info
+  Output: same user info
+Login
+  Input: email, password
+  Steps: 
+    Goto Home (auto)
+    Click on Login
+    Enter INPUT
+    Submit
+    Goto Home (auto)
+    Check logged in account
+    Goto MyAccount
+    Check user info
+  Output: same user info
+User Page Movie History
+  Input: null
+  Steps:
+    Login
+    Goto home
+    Select video
+    Watch video
+    Goto User page
+    Check history tab
+  Output: Correct video title(s)
+User Page Favorite Movies
+  Input: null
+  Steps:
+    Login
+    Goto home
+    Select video
+    Favorite video
+    Goto User page
+    Check favorites tab
+  Output: Correct video title(s)
+User Page Comments
+  Input: null
+  Steps:
+    Login
+    Go to home
+    Select video
+    Comment on video
+    Goto User page
+    Check comments tab
+  Output: Correct comment info
+Edit Profile
+  Input: Updated user info
+  Steps:
+    Check user is logged in
+    Goto User Page
+    Click on Edit Profile
+    Enter INPUT
+    Submit 
+    Goto User Page
+    Check User info
+  Output: Correct updated user info
