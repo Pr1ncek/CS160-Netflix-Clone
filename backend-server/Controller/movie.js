@@ -18,7 +18,7 @@ router.get('/topmovies', (req, res) => {
     });
 });
 
-// @route   GET api/movies/search
+// @route   GET api/movies/search/
 // @desc    search for a movie
 // @access  Public
 router.get('/search', (req, res) => {
@@ -35,11 +35,11 @@ router.get('/search', (req, res) => {
     });
 });
 
-// @route   GET api/movies/searchbyid
+// @route   GET api/movies/searchbyid/:id
 // @desc    search for a movie by its id
 // @access  Public
-router.get('/searchbyid', (req, res) => {
-  Movie.findById(req.body.id)
+router.get('/searchbyid/:id', (req, res) => {
+  Movie.findById(req.params.id)
     .then(result => {
       return res.status(200).json(result);
     })
