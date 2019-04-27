@@ -76,6 +76,7 @@ class Root extends React.Component {
             <Route
               path="/EditProfile"
               render={props => <EditProfile currentUser={currentUser} isAuthenticated={isAuthenticated} {...props} />}
+            />
             <Route
               path="/movie"
               render={props => (<MoviePage currentUser={currentUser} />)}
