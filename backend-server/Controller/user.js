@@ -2,6 +2,28 @@ const express = require('express');
 const router = express.Router();
 const User = require('../Model/User');
 
+
+// @route   GET api/users/:id
+// @desc    grab a user by its id from DB
+// @access  Public
+router.get('/:id', (req, res) => {
+	var conditions = {_id: req.params.id};
+    User.findById(conditions).then(result => {
+        return res.status(200).json({
+			firstName: result.firstName,
+			lastName: result.lastName,
+			email: result.email,
+			avatar: result.avatar,
+			history: result.history,
+			favorites: result.favorites
+		});
+      })
+      .catch(err => {
+        console.err(err);
+        return res.status(401).json(err);
+      });
+  });
+
 // @route PUT api/users/:id/update
 // @desc updates user information
 // @access Public
