@@ -35,11 +35,11 @@ router.get('/search', (req, res) => {
     });
 });
 
-// @route   GET api/movies/searchbyid
+// @route   GET api/movies/searchbyid/:id
 // @desc    search for a movie by its id
 // @access  Public
-router.get('/searchbyid', (req, res) => {
-  Movie.findById(req.body.id)
+router.get('/searchbyid/:id', (req, res) => {
+  Movie.findById(req.params.id)
     .then(result => {
       return res.status(200).json(result);
     })
@@ -48,4 +48,5 @@ router.get('/searchbyid', (req, res) => {
       return res.status(401).json(err);
     });
 });
+
 module.exports = router;

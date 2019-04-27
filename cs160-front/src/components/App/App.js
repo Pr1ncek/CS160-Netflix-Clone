@@ -29,7 +29,11 @@ class App extends Component {
     try {
       movies.forEach(async movie => {
         await axios
-          .get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=d3174f7b933d2334bd229b8535a3cf3c`)
+          .get(
+            `https://api.themoviedb.org/3/movie/${
+              movie.id
+            }?api_key=d3174f7b933d2334bd229b8535a3cf3c`
+          )
           .then(res => {
             this.setState(prevState => ({
               moviePosters: { ...prevState.moviePosters, [movie.title]: res.data.poster_path }
@@ -78,7 +82,12 @@ class App extends Component {
                 <div
                   key={movie.id}
                   className="card movie-card"
-                  style={{ width: '18rem', margin: '10px', marginBottom: '70px', paddingBottom: '1%' }}
+                  style={{
+                    width: '18rem',
+                    margin: '10px',
+                    marginBottom: '70px',
+                    paddingBottom: '1%'
+                  }}
                 >
                   {!imagesLoaded || moviePosters[movie.title] === undefined ? (
                     <div className="black-box">
@@ -100,13 +109,20 @@ class App extends Component {
                     <p className="card-text pb-2">
                       Rating:<strong> {movie.vote_average}</strong>
                     </p>
-                    <button className="btn btn-danger w-100">Play</button>
+                    <button
+                      className="btn btn-danger w-100"
+                      onClick={() => this.props.history.push(`/movie/${movie._id}`)}
+                    >
+                      Play
+                    </button>
                   </div>
                 </div>
               );
             })}
         </div>
-        <div style={{ width: '500px', paddingBottom: '3%', marginLeft: 'auto', marginRight: 'auto' }}>
+        <div
+          style={{ width: '500px', paddingBottom: '3%', marginLeft: 'auto', marginRight: 'auto' }}
+        >
           {currentPage > 0 && (
             <button onClick={this.previousPage} className="btn btn-dark pl-5 pr-5">
               Previous Page

@@ -10,7 +10,8 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
-import MoviePage from './/components/MoviePage/MoviePage'
+import MoviePage from './/components/MoviePage/MoviePage';
+import Movie from './components/Movie/Movie';
 //import UserProfile from './components/User/UserProfile';
 //import EditProfile from './components/User/EditProfile';
 
@@ -55,13 +56,21 @@ class Root extends React.Component {
     return (
       <React.Fragment>
         <Router>
-          <Navbar logout={this.logout} isAuthenticated={isAuthenticated} currentUser={currentUser} />
+          <Navbar
+            logout={this.logout}
+            isAuthenticated={isAuthenticated}
+            currentUser={currentUser}
+          />
           <Switch>
             <Route exact path="/" component={App} />
             <Route
               path="/login"
               render={props => (
-                <Login setCurrentUser={this.setCurrentUser} isAuthenticated={isAuthenticated} {...props} />
+                <Login
+                  setCurrentUser={this.setCurrentUser}
+                  isAuthenticated={isAuthenticated}
+                  {...props}
+                />
               )}
             />
             <Route
@@ -69,10 +78,9 @@ class Root extends React.Component {
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
             />
 
-            <Route
-              path="/movie"
-              render={props => (<MoviePage currentUser={currentUser} />)}
-            />
+            {/* <Route path="/movie" render={props => <MoviePage currentUser={currentUser} />} /> */}
+
+            <Route path="/movie/:id" component={Movie} />
           </Switch>
         </Router>
       </React.Fragment>

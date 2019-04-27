@@ -7,22 +7,27 @@ const Comment = require('../Model/Comment');
 // @desc search for comments by its movieId, grab user's name
 // @access Public
 router.get('/getMovieComments', (req, res) => {
-   Comment.find({movie: req.body.id}).populate('user')
-   .then(comments => {
-       return res.status(200).json(comments);
-   })
-   .catch(err => {
-       console.log(err);
-       return res.status(401).send(err);
-   });
+  Comment.find({ movie: req.body.id })
+    .populate('user')
+    .then(comments => {
+      return res.status(200).json(comments);
+    })
+    .catch(err => {
+      console.log(err);
+      return res.status(401).send(err);
+    });
 });
 
 //@route    POST api/comments/postComment
 //@desc     post a new comment
 //@access   public
 router.post('/postComment', (req, res) => {
-    var newComment = new Comment({movie: req.body.movieID, user: req.body.userID, text: req.body.text});
-    newComment.save();
-    return res.status(200).json({ Msg: 'Success', newComment: newComment });
+  var newComment = new Comment({
+    movie: req.body.movieID,
+    user: req.body.userID,
+    text: req.body.text
+  });
+  newComment.save();
+  return res.status(200).json({ Msg: 'Success', newComment: newComment });
 });
 module.exports = router;
