@@ -17,6 +17,13 @@ class Navbar extends React.Component {
             Login
           </Link>
         </li>
+      <li className="nav-item">
+          <Link className="nav-link" to="login">
+            <img src={require('../../images/AvatarImg.png')} alt="GuestImg" width="30" height="30"  /> 
+          </Link>
+        </li>
+     
+     
       </ul>
     );
     const authLinks = (
