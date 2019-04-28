@@ -11,7 +11,8 @@ class EditProfile extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      password: '',
+      currentPassword: '',
+      newPassword: '',
       avatar: ''
     };
   }
@@ -103,7 +104,7 @@ class EditProfile extends Component {
                   type="password"
                   placeholder="Current Password"
                   name="currentPassword"
-                  value={this.state.password}
+                  value={this.state.currentPassword}
                   onChange={this.onChange}
                   />
                 </div>
