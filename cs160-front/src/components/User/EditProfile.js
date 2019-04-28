@@ -11,19 +11,46 @@ class EditProfile extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      password: '',
+      currentPassword: '',
+      newPassword: '',
       avatar: ''
     };
   }
 
 
+  componentDidMount() {
+  	console.log("ID is " + this.props.match.params.id);
+  	axios
+  	.get('/api/users/' + this.props.match.params.id)
+  	.then(res => {
+  		console.log(res.data);
+  		this.setState({
+  			firstName: res.data.firstName,
+  			lastName: res.data.lastName,
+  			email: res.data.email,
+  			avatar: res.data.avatar
+  		});
+  	}) 
+  	.catch(err => console.error(err));
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmit = e => {
+  	e.preventDefault();
+
+  	const { firstName, lastName, email, password } = this.state;
+  	axios
+  	.put('/api/users/' + this.props.match.params.id + '/update', { firstName, lastName, email, password })
+  	.then(res => {
+  		console.log(res.data);
+  	});
+  };
 
   render() {
-    const { isAuthenticated, currentUser } = this.props;
+    const { currentUser } = this.props;
     return(
       <div className="mt-5 pt-5">
         <div className="container">
@@ -37,12 +64,12 @@ class EditProfile extends Component {
               <p className="lead text-center mb-4">Edit Avatar</p>
               </div>
               <div className="col-md-8">
-              <form>
+              <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input 
                   className="form-control"
+                  placeholder="First Name"
                   type="text"
-                  placeholder={currentUser.firstName}
                   name="firstName"
                   value={this.state.firstName}
                   onChange={this.onChange}
@@ -53,7 +80,7 @@ class EditProfile extends Component {
                   <input 
                   className="form-control"
                   type="text"
-                  placeholder={currentUser.lastName}
+                  placeholder="Last Name"
                   name="lastName"
                   value={this.state.lastName}
                   onChange={this.onChange}
@@ -64,7 +91,7 @@ class EditProfile extends Component {
                   <input 
                   className="form-control"
                   type="email"
-                  placeholder={currentUser.email}
+                  placeholder="Email"
                   name="email"
                   value={this.state.email}
                   onChange={this.onChange}
@@ -77,7 +104,7 @@ class EditProfile extends Component {
                   type="password"
                   placeholder="Current Password"
                   name="currentPassword"
-                  value={this.state.password}
+                  value={this.state.currentPassword}
                   onChange={this.onChange}
                   />
                 </div>
