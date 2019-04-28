@@ -8,7 +8,7 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     axios
-      .get('/api/comments', this.props.currentUser._id)
+      .get('/api/comments/${currentUser.id}')
       .then(res => {
         console.log(res.data);
         this.setState({ comments: res.data });
