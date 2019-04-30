@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import './UserProfile.css';
 import axios from 'axios';
 
@@ -31,12 +31,31 @@ class UserProfile extends React.Component {
   			lastName: res.data.lastName,
   			email: res.data.email,
         avatar: res.data.avatar,
-        history: res.data.history,
-        favorites: res.data.favorites
+        history: res.data.history, // only returns ids
+        favorites: res.data.favorites // only returns ids
       });
+      console.log("History: " + res.data.history)
+      console.log("Favorites: " + res.data.favorites)
+      this.fetchTitles(res.data.history)
       this.getComments();
   	}) 
   	.catch(err => console.error(err));
+  };
+
+  // Need to fix this
+  fetchTitles = (movies) => {
+    try {
+      movies.forEach(async movie => {
+        axios
+          .get('api/movies/' + movie)
+          .then(res => {
+            console.log("Movie is "+res.data);
+            this.state.history.push(res.data.title);
+          });
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Need to fix this
@@ -48,7 +67,6 @@ class UserProfile extends React.Component {
   		this.setState({
   			comments: res.data
       });
-      this.getComments();
   	}) 
   	.catch(err => console.error(err));
   };
@@ -100,13 +118,13 @@ class UserProfile extends React.Component {
                 <div class="col-md-4 border rounded">
                   <p className="lead text-center mb-4">Comments</p>
                   <div className="row">
-                    {/* {comments.map(comment => {
+                    {this.state.comments.map(comment => {
                       return (
                         <div class="border rounded">
                           <p className="text-left">{comment}</p>
                         </div>
                       );
-                    })} */}
+                    })}
                   </div>
                 </div>
               </div>
