@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const Movie = require('../Model/movie');
+const User = require('../Model/User');
+
 
 // Create Schema
 const commentSchema = new mongoose.Schema({
@@ -12,7 +15,7 @@ const commentSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  text: { type: String, required: true},
+  text: { type: String, required: true },
   updated: {
     type: Date,
     default: Date.now

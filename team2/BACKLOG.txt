@@ -37,20 +37,34 @@ SPRINT 2: Initialize all instances
     a) Route Client to Database
 
 SPRINT 3: Implementation
-1) Front End: 
-    a) Route Client to Database - see Backend
-    b) Finish Sprint 2 tasks
-        i) User Edit Page
-       ii) User Profile Style Sheet
-      iii) User Registration Style Sheet
-       iv) User Login Style Sheet
-        v) User Edit Style Sheet
-2) Back End:
+1) Front End: [0]
+    a) Route Client to Database - see Backend [0]
+    b) Finish Sprint 2 tasks [1]
+        i) User Edit Page [1]
+2) Back End:[0]
     a) Route Client to Database
         i) User Profile Routing
        ii) User Edit Routing
-      iii) User Registration Routing
-       iv) User Login Routing
-3) Database:
-    a) Route Client to Database - see Backend
+3) Database:[0]
+    a) Route Client to Database - see Backend [0]
     b) Create User Collection Data (3x dummy) [1]
+    
+SPRINT 4: Testing
+1) Sprint 3 Tasks: Routing [1]
+2) Test Plan (Verification/Validation)
+    a) Registration (Victor)
+    b) Login (Shail)
+    c) User Profile (Roger)
+    d) User Edit (Phoenix)
+3) Defects (of each component in section 2)
+    a) Report
+        i) source of defect
+4) Selenium Lab (setup on thursday April 25)
+    a) Write test case(s) for each part component in section 2
+5) Documentation
+    a) FAQ / User Guide - one for each part component in section 2
+    b) Installation
+    c) ReadMe
+6) Low Level Design(s) - refer to chapter 5 for examples
+    a) sequence or component diagram - DRAFT DONE (4/28)
+7) Pair Programming (Shail)
