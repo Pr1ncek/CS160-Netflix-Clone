@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CommentPostComponent.css'
-const axios = require("axios");
+import axios from 'axios'
 
 //import "./CommentPostComponent.css"
 //import { Form, Button } from 'react-bootstrap/'
@@ -9,11 +9,22 @@ const axios = require("axios");
 
 class CommentPostComponent extends Component {
 
-	post()
-	{
+	state = {
+		comment_text: ''
+	}
+
+
+
+handleChange = (e) => {
+	console.log(e.target.value)
+	this.setState({ [e.target.id]: e.target.velue})}
+
+	post = (e) => {
+		e.preventDefault()
+		console.log("here")
 		axios.post('api/comments/postcomment', 
 			{
-				text: "Test", 
+				text: this.state.comment_text, 
 				movieID: "Test", 
 				userID:"Test"
 			}).then(res => 
@@ -27,8 +38,10 @@ class CommentPostComponent extends Component {
 		return (
 			
 			<div id="comment">
-		    	<input id="comment_text" class="form-control" type="text" placeholder="Comment" />
-				<button type="button" class="btn btn-light" ref='comment' onClick={this.post}>Post</button>
+				<form onSubmit={this.post}>
+		    		<input id="comment_text" class="form-control" type="text" placeholder="Comment"  onChange={this.handleChange}/>
+					<button type="submit" class="btn btn-light" ref='comment' >Post</button>
+				</form>
 			</div>
 			/*
 			<section class="container">
