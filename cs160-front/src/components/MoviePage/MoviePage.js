@@ -53,7 +53,7 @@ class App extends Component {
             <CommentComponent />
             <CommentComponent />
           </div>
-          <CommentPostComponent id={this.state.movie._id} user={this.props.user}/>
+          <CommentPostComponent id={'5c919e9dd346841eaf9d1e4b'} user={this.props.currentUser}/>/*this.state.movie._id*/
         </div>
       </div>
     );

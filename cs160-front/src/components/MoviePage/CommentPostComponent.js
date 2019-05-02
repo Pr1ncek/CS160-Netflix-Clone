@@ -15,18 +15,21 @@ class CommentPostComponent extends Component {
 
 
 
-handleChange = (e) => {
-	console.log(e.target.value)
-	this.setState({ [e.target.id]: e.target.velue})}
+	handleChange = (e) => {
+		console.log(e.target.value)
+		console.log(e.target.id)
+		this.setState({ [e.target.id]: e.target.value})}
 
 	post = (e) => {
 		e.preventDefault()
 		console.log("here")
-		axios.post('api/comments/postcomment', 
+		console.log(this.state.comment_text)
+		console.log(this.props.id)
+		axios.post('api/comments/postComment', 
 			{
 				text: this.state.comment_text, 
-				movieID: "Test", 
-				userID:"Test"
+				movieID: this.props.id, 
+				userID: this.props.user
 			}).then(res => 
 			{
 				console.log(res.data);
