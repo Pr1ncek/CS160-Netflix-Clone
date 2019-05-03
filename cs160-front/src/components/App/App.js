@@ -121,10 +121,7 @@ class App extends Component {
           </button>{' '}
         </div>
       </div>
-</div>
-</div>
-    );
-  }
-}
+  
+  
 
 export default App;

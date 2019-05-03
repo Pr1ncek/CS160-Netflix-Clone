@@ -12,8 +12,8 @@ import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
 import MoviePage from './/components/MoviePage/MoviePage';
 import Movie from './components/Movie/Movie';
-//import UserProfile from './components/User/UserProfile';
-//import EditProfile from './components/User/EditProfile';
+import UserProfile from './components/User/UserProfile';
+import EditProfile from './components/User/EditProfile';
 
 const checkAuthenticationStatus = () => {
   // check for token
@@ -77,10 +77,18 @@ class Root extends React.Component {
               path="/register"
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
             />
-
-            {/* <Route path="/movie" render={props => <MoviePage currentUser={currentUser} />} /> */}
-
-            <Route path="/movie/:id" component={Movie} />
+            <Route
+              path="/UserProfile/:id"
+              render={props => <UserProfile {...props} currentUser={currentUser} isAuthenticated={isAuthenticated} />}
+            />
+            <Route
+              path="/edit/:id"
+              render={props => <EditProfile currentUser={currentUser} isAuthenticated={isAuthenticated} {...props} />} 
+            />
+            <Route
+              path="/movie"
+              render={props => (<MoviePage currentUser={currentUser} />)}
+            />
           </Switch>
         </Router>
       </React.Fragment>
