@@ -4,11 +4,11 @@ const Movie = require('../Model/movie');
 const RATING_AVERAGE_VALUE = 8.0;
 
 // @route   GET api/movies/topmovies
-// @desc    search for a movie
+// @desc    returns the top movies from the dataset.
 // @access  Public
 router.get('/topmovies', (req, res) => {
   Movie.find({ vote_average: { $gt: RATING_AVERAGE_VALUE } })
-    .limit(12)
+    .limit(50)
     .then(result => {
       return res.status(200).json(result);
     })
@@ -17,7 +17,6 @@ router.get('/topmovies', (req, res) => {
       return res.status(401).send(err);
     });
 });
-
 
 // @route   GET api/movies/topactionmovies
 // @desc    search for top action movies
@@ -83,11 +82,11 @@ router.get('/search', (req, res) => {
     });
 });
 
-// @route   GET api/movies/searchbyid
+// @route   GET api/movies/searchbyid/:id
 // @desc    search for a movie by its id
 // @access  Public
-router.get('/searchbyid', (req, res) => {
-  Movie.findById(req.body.id)
+router.get('/searchbyid/:id', (req, res) => {
+  Movie.findById(req.params.id)
     .then(result => {
       return res.status(200).json(result);
     })

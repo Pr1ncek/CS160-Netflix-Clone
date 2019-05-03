@@ -10,10 +10,17 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
+<<<<<<< HEAD
 import Search from './components/Searchcomponent/Search';
 import MoviePage from './/components/MoviePage/MoviePage'
 //import UserProfile from './components/User/UserProfile';
 //import EditProfile from './components/User/EditProfile';
+=======
+import UserProfile from './components/User/UserProfile';
+import EditProfile from './components/User/EditProfile';
+import MoviePage from './/components/MoviePage/MoviePage';
+
+>>>>>>> master
 
 
 const checkAuthenticationStatus = () => {
@@ -71,7 +78,14 @@ class Root extends React.Component {
               path="/register"
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
             />
-
+            <Route
+              path="/UserProfile"
+              render={props => <UserProfile {...props} currentUser={currentUser} isAuthenticated={isAuthenticated} />}
+            />
+            <Route
+              path="/edit/:id"
+              render={props => <EditProfile currentUser={currentUser} isAuthenticated={isAuthenticated} {...props} />} 
+            />
             <Route
               path="/movie"
               render={props => (<MoviePage currentUser={currentUser} />)}
