@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Searchbar from '../Searchcomponent/searchbar';
+ 
 
 class Navbar extends React.Component {
   render() {
@@ -15,6 +17,13 @@ class Navbar extends React.Component {
             Login
           </Link>
         </li>
+      <li className="nav-item">
+          <Link className="nav-link" to="login">
+            <img src={require('../../images/AvatarImg.png')} alt="GuestImg" width="30" height="30"  /> 
+          </Link>
+        </li>
+     
+     
       </ul>
     );
     const authLinks = (
@@ -38,13 +47,16 @@ class Navbar extends React.Component {
             <li className="navbar-brand" style={{ fontWeight: 900, fontSize: '180%' }}>
               Notflix
             </li>
+            <li className="nav-item">
+                <Searchbar />
+            </li>
             <li className="nav-item ml-4 pt-2">
               <Link className="nav-link" to="/">
                 {' '}
                 Home
               </Link>
             </li>
-          </ul>
+          </ul>         
           {this.props.isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
