@@ -11,7 +11,6 @@ class UserProfile extends React.Component {
       email: '',
       avatar: '',
       history: [],
-      favorites: [],
       comments: []
     };
   }
@@ -32,10 +31,8 @@ class UserProfile extends React.Component {
   			email: res.data.email,
         avatar: res.data.avatar,
         history: res.data.history, // only returns ids
-        favorites: res.data.favorites // only returns ids
       });
       console.log("History: " + res.data.history)
-      console.log("Favorites: " + res.data.favorites)
       this.fetchTitles(res.data.history)
       this.getComments();
   	}) 
@@ -91,7 +88,7 @@ class UserProfile extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div class="col-md-4 border rounded">
+                <div class="col-md-6 border rounded">
                   <p className="lead text-center mb-4">History</p>
                   <div className="row">
                     {this.state.history.map(movie => {
@@ -103,19 +100,7 @@ class UserProfile extends React.Component {
                     })}
                   </div>
                 </div>
-                <div class="col-md-4 border rounded">
-                  <p className="lead text-center mb-4">Favorites</p>
-                  <div className="row">
-                    {this.state.favorites.map(movie => {
-                      return (
-                        <div class="border rounded">
-                          <p className="text-left">{movie}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div class="col-md-4 border rounded">
+                <div class="col-md-6 border rounded">
                   <p className="lead text-center mb-4">Comments</p>
                   <div className="row">
                     {this.state.comments.map(comment => {
