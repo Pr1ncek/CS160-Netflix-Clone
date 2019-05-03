@@ -30,10 +30,10 @@ class UserProfile extends React.Component {
   			lastName: res.data.lastName,
   			email: res.data.email,
         avatar: res.data.avatar,
-        history: res.data.history, // only returns ids
+        //history: res.data.history, // only returns ids
       });
-      console.log("History: " + res.data.history)
-      this.fetchTitles(res.data.history)
+      console.log("History: " + res.data.history);
+      this.fetchTitles(res.data.history);
       this.getComments();
   	}) 
   	.catch(err => console.error(err));
@@ -43,10 +43,11 @@ class UserProfile extends React.Component {
   fetchTitles = (movies) => {
     try {
       movies.forEach(async movie => {
+        console.log("Movie ID = "+movie)
         axios
-          .get('api/movies/' + movie)
+          .get('/api/movies/searchbyid/' + movie)
           .then(res => {
-            console.log("Movie is "+res.data);
+            console.log("Movie Title = "+res.data.title);
             this.state.history.push(res.data.title);
           });
       });
@@ -58,9 +59,9 @@ class UserProfile extends React.Component {
   // Need to fix this
   getComments = () => {
   	axios
-  	.get('/api/comments/' + this.props.match.params.id)
+  	.get('/api/comments/getUserComments')
   	.then(res => {
-  		console.log(res.data);
+  		console.log("Comments = "+res.data);
   		this.setState({
   			comments: res.data
       });
