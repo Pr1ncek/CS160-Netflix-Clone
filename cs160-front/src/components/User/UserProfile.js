@@ -1,94 +1,122 @@
-import React, { Component } from "react";
-import { Image, Tab, Tabs, Container, Row, Col, ListGroup } from 'react-bootstrap';
-import blankPhoto from "./images/AvatarImg.png";
-import "./Style.css";
+import React from "react";
+import './UserProfile.css';
 import axios from 'axios';
 
-var user = {
-  basicInfo: {
-    firstName: "Abed",
-    lastName: "Nadir",
-    username: "brownjoey",
-    email: "abed.nadir@greendale.com",
-    photo: blankPhoto,
-  }
-}
-
-class Avatar extends React.Component {
-  render() {
-    var image = this.props.image,
-        style = {
-          width: 50,
-          height: 50
-        }; 
-    
-    if (!image) return null;
-    
-    return (
-        <Image src={this.props.image} thumbnail/> 
-    );
-  }
-}
-
 class UserProfile extends React.Component {
-  state = {
-    user: {},
-    isLoaded: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      avatar: '',
+      history: [],
+      comments: []
+    };
+  }
 
   componentDidMount() {
-    axios.get('/user')
-      .then(res =>{
-        console.log(res.data);
-        this.setState({ user: res.data });
-        this.setState({ isLoaded: true });
-      })
-      .catch(err => console.error(err));
+  	this.getUserInfo();
   }
 
+  getUserInfo = () => {
+    console.log("ID is " + this.props.match.params.id);
+  	axios
+  	.get('/api/users/' + this.props.match.params.id)
+  	.then(res => {
+  		console.log(res.data);
+  		this.setState({
+  			firstName: res.data.firstName,
+  			lastName: res.data.lastName,
+  			email: res.data.email,
+        avatar: res.data.avatar,
+        history: res.data.history, // only returns ids
+      });
+      console.log("History: " + res.data.history)
+      this.fetchTitles(res.data.history)
+      this.getComments();
+  	}) 
+  	.catch(err => console.error(err));
+  };
+
+  // Need to fix this
+  fetchTitles = (movies) => {
+    try {
+      movies.forEach(async movie => {
+        axios
+          .get('api/movies/' + movie)
+          .then(res => {
+            console.log("Movie is "+res.data);
+            this.state.history.push(res.data.title);
+          });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Need to fix this
+  getComments = () => {
+  	axios
+  	.get('/api/comments/' + this.props.match.params.id)
+  	.then(res => {
+  		console.log(res.data);
+  		this.setState({
+  			comments: res.data
+      });
+  	}) 
+  	.catch(err => console.error(err));
+  };
+
   render() {
-    const { isLoaded, user } = this.state;
-    if (!isLoaded)
-      return (
-        <div class="d-flex justify-content-center" style={{ marginTop: '370px' }}>
-          <div class="spinner-border" style={{ width: '3rem', height: '3rem' }} role="status">
-            <span class="sr-only">Loading...</span>
+    return (
+      <div className="UserProfile mt-5 pt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center">User Profile</h1>
+              <p className="lead text-center mb-4">Your Notflix Account</p>
+              <div className="row border rounded profile-card">
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                  <img src={this.state.avatar} class="img-fluid mt-4 img-thumbnail"></img>
+                </div>
+                <div class="col-md">
+                  <ul className="lead mt-4 mb-4 font-weight-bold"><h2>{this.state.firstName} {this.state.lastName}</h2></ul>
+                  <ul className="lead mb-4">Email: {this.state.email}</ul> 
+                  <ul><button type="button" className="btn btn-danger block"><a href="/edit/:id" class="nav-link text-white">Edit Profile</a></button></ul>
+                </div>
+              </div>
+              <div className="row">
+                <div class="col-md-6 border rounded">
+                  <p className="lead text-center mb-4">History</p>
+                  <div className="row">
+                    {this.state.history.map(movie => {
+                      return (
+                        <div class="border rounded">
+                          <p className="text-left">{movie}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div class="col-md-6 border rounded">
+                  <p className="lead text-center mb-4">Comments</p>
+                  <div className="row">
+                    {this.state.comments.map(comment => {
+                      return (
+                        <div class="border rounded">
+                          <p className="text-left">{comment}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      );
-    return (
-    <Container>
-      <Row>
-        <Col sm={5} md={4} lg={3}>
-        <Avatar
-          image={user.basicInfo.photo}/>
-          <p className="text-center">
-          <a href="./edit-profile">Edit Profile</a>
-          </p>
-        </Col>
-        <Col sm={7} md={8} lg={9}>
-        <h3>{user.basicInfo.username}</h3>
-        <p className="text-muted">{user.basicInfo.firstName} {user.basicInfo.lastName}</p>
-        <p className="text-muted">{user.basicInfo.email}</p>
-        </Col>
-      </Row>
-      <Tabs defaultActiveKey="history" id="uncontrolled-tab-example">
-        <Tab eventKey="history" title="History">
-          <ListGroup>
-            <ListGroup.Item>Movie 1</ListGroup.Item> 
-            <ListGroup.Item>Movie 2</ListGroup.Item> 
-            <ListGroup.Item>Movie 3</ListGroup.Item> 
-          </ListGroup>
-        </Tab>
-        <Tab eventKey="comments" title="Comments">
-        <ListGroup>
-            <ListGroup.Item>Comment 1</ListGroup.Item> 
-            <ListGroup.Item>Comment 2</ListGroup.Item> 
-            <ListGroup.Item>Comment 3</ListGroup.Item> 
-          </ListGroup>
-        </Tab>
-      </Tabs>
-    </Container>
+      </div>
     );
   }
 }

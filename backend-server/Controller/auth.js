@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     return res.json({ Msg: 'Success', token: `Bearer ${token}` });
   } catch (error) {
     return res.status(400).json(error);
-  } 
+  }
 });
 
 // @route   POST api/auth/register
@@ -44,6 +44,7 @@ router.post('/register', async (req, res) => {
   const { errors, isValid } = validateRegistrationInputs(req.body);
   if (!isValid) return res.status(400).json(errors);
   const { firstName, lastName, email, password } = req.body;
+  console.log(req.body);
   try {
     const user = await User.findOne({ email });
     if (user) return res.status(400).json({ ...errors, email: 'Email already exists' });

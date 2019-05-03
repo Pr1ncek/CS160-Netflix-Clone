@@ -3,6 +3,43 @@ const router = express.Router();
 const User = require('../Model/User');
 
 
+// @route   GET api/users/:id
+// @desc    grab a user by its id from DB
+// @access  Public
+router.get('/:id', (req, res) => {
+	var conditions = {_id: req.params.id};
+    User.findById(conditions).then(result => {
+        return res.status(200).json({
+			firstName: result.firstName,
+			lastName: result.lastName,
+			email: result.email,
+			avatar: result.avatar,
+			history: result.history,
+			favorites: result.favorites
+		});
+      })
+      .catch(err => {
+        console.err(err);
+        return res.status(401).json(err);
+      });
+  });
+
+// @route PUT api/users/:id/update
+// @desc updates user information
+// @access Public
+router.put("/:id/update", (req, res) => {
+	var conditions = {_id: req.params.id};
+	User.update(conditions, req.body).then(result => {
+		if(!result){
+            return res.status(404).send("User not found!");
+        }
+        return res.status(200).send("User Information has been updated!");
+	}).catch(err => {
+		console.log(err);
+		return res.status(500);
+	});
+});
+
 // @route PUT api/users/saveToHistory
 // @desc save a movie to the user's history
 // @access Public
