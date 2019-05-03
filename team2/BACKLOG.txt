@@ -52,10 +52,10 @@ SPRINT 3: Implementation
 SPRINT 4: Testing
 1) Sprint 3 Tasks: Routing [1]
 2) Test Plan (Verification/Validation)
-    a) Registration
-    b) Login
-    c) User Profile
-    d) User Edit
+    a) Registration (Victor)
+    b) Login (Shail)
+    c) User Profile (Roger)
+    d) User Edit (Phoenix)
 3) Defects (of each component in section 2)
     a) Report
         i) source of defect
@@ -66,5 +66,5 @@ SPRINT 4: Testing
     b) Installation
     c) ReadMe
 6) Low Level Design(s) - refer to chapter 5 for examples
-    a) sequence or component diagram
-7) Pair Programming
+    a) sequence or component diagram - DRAFT DONE (4/28)
+7) Pair Programming (Shail)
