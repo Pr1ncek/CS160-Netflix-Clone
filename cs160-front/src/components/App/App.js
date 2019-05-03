@@ -11,15 +11,8 @@ class App extends Component {
       topHorrorMovies: [],
     moviePosters: {},
     isLoaded: false,
-<<<<<<< HEAD
-      actionMoviesLoaded: false,
-      comedyMoviesLoaded:false,
-      horrormMoviesLoaded:false,
-    imagesLoaded: true,
-=======
     imagesLoaded: true,
     currentPage: 0
->>>>>>> master
   };
 
   componentDidMount() {
@@ -34,42 +27,7 @@ class App extends Component {
         this.getMoviePosters(res.data);
       })
       .catch(err => console.error(err));
-<<<<<<< HEAD
-      
-      axios
-        .get('/api/movies/topactionmovies')
-        .then(res => {
-        console.log(res.data);
-        this.setState({ topActionMovies: res.data });
-        this.setState({ actionMoviesLoaded: true });
-        this.getMoviePosters(res.data);
-      })
-      .catch(err => console.error(err));
-      
-      axios
-        .get('/api/movies/topcomedymovies')
-        .then(res => {
-        console.log(res.data);
-        this.setState({ topComedyMovies: res.data });
-        this.setState({ comedyMoviesLoaded: true });
-        this.getMoviePosters(res.data);
-      })
-      .catch(err => console.error(err));
-      
-       axios
-        .get('/api/movies/tophorrormovies')
-        .then(res => {
-        console.log(res.data);
-        this.setState({ topHorrorMovies: res.data });
-        this.setState({ horrorMoviesLoaded: true });
-        this.getMoviePosters(res.data);
-      })
-      .catch(err => console.error(err));
-      
-  }
-=======
   };
->>>>>>> master
 
   getMoviePosters = movies => {
     try {
@@ -105,11 +63,7 @@ class App extends Component {
   };
 
   render() {
-<<<<<<< HEAD
-    const { isLoaded, top50Movies, topActionMovies, actionMoviesLoaded, topComedyMovies, topHorrorMovies, horrorMoviesLoaded, comedyMoviesLoaded, moviePosters, imagesLoaded } = this.state;
-=======
     const { isLoaded, top50Movies, moviePosters, imagesLoaded, currentPage } = this.state;
->>>>>>> master
     if (!isLoaded)
       return (
         <div className="d-flex justify-content-center" style={{ marginTop: '370px' }}>
@@ -120,126 +74,8 @@ class App extends Component {
       );
       
     return (
-<<<<<<< HEAD
-      <div className="pt-5" style={{ paddingLeft: '8.5%', marginTop: '70px' }}>
-        <div className="navbar-brand" style={{ fontWeight: 900, fontSize: '180%' }}> Action </div>
-        <div className="row">
-        
-          {actionMoviesLoaded &&
-            topActionMovies.map(movie => {
-        return (
-        <div class="videolisting">
-                <div 
-                  key={movie.id}
-                  className="card movie-card"
-                  style={{ width: '18rem', margin: '10px', marginBottom: '15px', paddingBottom: '1%' }} 
-                > 
-                  {!imagesLoaded ? (
-                    <div className="black-box">
-                      <h4 className="pl-2 pr-2">{movie.title}</h4>
-                    </div>
-                  ) : (
-                    <img
-                      onError={this.imagesFailedToLoad}
-                      src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
-                      className="card-img-top"
-                      alt={movie.title}
-                    />
-                    )}
-                  <div className="card-body">
-                    <p className="card-text">
-                      Released:<strong> {movie.release_date}</strong>
-                    </p>
-                    <p className="card-text pb-2">
-                      Rating:<strong> {movie.vote_average}</strong>
-                    </p>
-                    <button className="btn btn-danger w-100">Play</button>
-                  </div>
-                </div>
-            </div>
-              );
-            })}
-
-
-<div className="navbar-brand" style={{ fontWeight: 900, fontSize: '180%' }}> Comedy </div>
-        <div className="row">
-          {comedyMoviesLoaded &&
-            topComedyMovies.map(movie => {
-        return (
-        <div class="videolisting">
-                <div 
-                  key={movie.id}
-                  className="card movie-card"
-                  style={{ width: '18rem', margin: '10px', marginBottom: '15px', paddingBottom: '1%' }} 
-                > 
-                  {!imagesLoaded ? (
-                    <div className="black-box">
-                      <h4 className="pl-2 pr-2">{movie.title}</h4>
-                    </div>
-                  ) : (
-                    <img
-                      onError={this.imagesFailedToLoad}
-                      src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
-                      className="card-img-top"
-                      alt={movie.title}
-                    />
-                    )}
-                  <div className="card-body">
-                    <p className="card-text">
-                      Released:<strong> {movie.release_date}</strong>
-                    </p>
-                    <p className="card-text pb-2">
-                      Rating:<strong> {movie.vote_average}</strong>
-                    </p>
-                    <button className="btn btn-danger w-100">Play</button>
-                  </div>
-                </div>
-            </div>
-              );
-            })}
-            
-            <div className="navbar-brand" style={{ fontWeight: 900, fontSize: '180%' }}> Horror </div>
-        <div className="row">
-          {horrorMoviesLoaded &&
-            topHorrorMovies.map(movie => {
-        return (
-        <div class="videolisting">
-                <div 
-                  key={movie.id}
-                  className="card movie-card"
-                  style={{ width: '18rem', margin: '10px', marginBottom: '15px', paddingBottom: '1%' }} 
-                > 
-                  {!imagesLoaded ? (
-                    <div className="black-box">
-                      <h4 className="pl-2 pr-2">{movie.title}</h4>
-                    </div>
-                  ) : (
-                    <img
-                      onError={this.imagesFailedToLoad}
-                      src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
-                      className="card-img-top"
-                      alt={movie.title}
-                    />
-                    )}
-                  <div className="card-body">
-                    <p className="card-text">
-                      Released:<strong> {movie.release_date}</strong>
-                    </p>
-                    <p className="card-text pb-2">
-                      Rating:<strong> {movie.vote_average}</strong>
-                    </p>
-                    <button className="btn btn-danger w-100">Play</button>
-                  </div>
-                </div>
-            </div>
-              );
-            })}
-            
-            
-=======
       <div className="pt-5 " style={{ marginTop: '70px', paddingLeft: '7%' }}>
         <div className="row" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
->>>>>>> master
           {isLoaded &&
             top50Movies.slice(currentPage * 12, currentPage * 12 + 12).map(movie => {
               return (
@@ -285,10 +121,7 @@ class App extends Component {
           </button>{' '}
         </div>
       </div>
-</div>
-</div>
-    );
-  }
-}
+  
+  
 
 export default App;
