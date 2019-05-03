@@ -10,18 +10,10 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
-<<<<<<< HEAD
-import Search from './components/Searchcomponent/Search';
-import MoviePage from './/components/MoviePage/MoviePage'
+import MoviePage from './/components/MoviePage/MoviePage';
+import Movie from './components/Movie/Movie';
 //import UserProfile from './components/User/UserProfile';
 //import EditProfile from './components/User/EditProfile';
-=======
-import UserProfile from './components/User/UserProfile';
-import EditProfile from './components/User/EditProfile';
-import MoviePage from './/components/MoviePage/MoviePage';
-
->>>>>>> master
-
 
 const checkAuthenticationStatus = () => {
   // check for token
@@ -64,32 +56,31 @@ class Root extends React.Component {
     return (
       <React.Fragment>
         <Router>
-          <Navbar logout={this.logout} isAuthenticated={isAuthenticated} currentUser={currentUser} />
+          <Navbar
+            logout={this.logout}
+            isAuthenticated={isAuthenticated}
+            currentUser={currentUser}
+          />
           <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/search" component={Search} />
             <Route
               path="/login"
               render={props => (
-                <Login setCurrentUser={this.setCurrentUser} isAuthenticated={isAuthenticated} {...props} />
+                <Login
+                  setCurrentUser={this.setCurrentUser}
+                  isAuthenticated={isAuthenticated}
+                  {...props}
+                />
               )}
             />
             <Route
               path="/register"
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
             />
-            <Route
-              path="/UserProfile"
-              render={props => <UserProfile {...props} currentUser={currentUser} isAuthenticated={isAuthenticated} />}
-            />
-            <Route
-              path="/edit/:id"
-              render={props => <EditProfile currentUser={currentUser} isAuthenticated={isAuthenticated} {...props} />} 
-            />
-            <Route
-              path="/movie"
-              render={props => (<MoviePage currentUser={currentUser} />)}
-            />
+
+            {/* <Route path="/movie" render={props => <MoviePage currentUser={currentUser} />} /> */}
+
+            <Route path="/movie/:id" component={Movie} />
           </Switch>
         </Router>
       </React.Fragment>
