@@ -6,9 +6,9 @@ import axios from 'axios';
 class App extends Component {
   state = {
     top50Movies: [],
-      topActionMovies: [],
-      topComedyMovies: [],
-      topHorrorMovies: [],
+    topActionMovies: [],
+    topComedyMovies: [],
+    topHorrorMovies: [],
     moviePosters: {},
     isLoaded: false,
     imagesLoaded: true,
@@ -72,7 +72,7 @@ class App extends Component {
           </div>
         </div>
       );
-      
+
     return (
       <div className="pt-5 " style={{ marginTop: '70px', paddingLeft: '7%' }}>
         <div className="row" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
@@ -89,14 +89,14 @@ class App extends Component {
                       <h4 className="pl-2 pr-2">{movie.title}</h4>
                     </div>
                   ) : (
-                    <img
-                      style={{ height: '400px' }}
-                      onError={this.imagesFailedToLoad}
-                      src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
-                      className="card-img-top"
-                      alt={movie.title}
-                    />
-                  )}
+                      <img
+                        style={{ height: '400px' }}
+                        onError={this.imagesFailedToLoad}
+                        src={`https://image.tmdb.org/t/p/w500/${moviePosters[movie.title]}`}
+                        className="card-img-top"
+                        alt={movie.title}
+                      />
+                    )}
                   <div className="card-body">
                     <p className="card-text">
                       Released:<strong> {movie.release_date}</strong>
@@ -121,7 +121,9 @@ class App extends Component {
           </button>{' '}
         </div>
       </div>
-  
-  
+    );
+  }
+}
+
 
 export default App;

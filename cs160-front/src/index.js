@@ -11,7 +11,7 @@ import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
 import MoviePage from './/components/MoviePage/MoviePage';
-import Movie from './components/Movie/Movie';
+//import Movie from './components/Movie/Movie';
 import UserProfile from './components/User/UserProfile';
 import EditProfile from './components/User/EditProfile';
 
