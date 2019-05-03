@@ -10,9 +10,17 @@ import App from './components/App/App';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
 import Navbar from './components/Navbar/Navbar';
+<<<<<<< HEAD
+import Search from './components/Searchcomponent/Search';
+import MoviePage from './/components/MoviePage/MoviePage'
+//import UserProfile from './components/User/UserProfile';
+//import EditProfile from './components/User/EditProfile';
+=======
 import UserProfile from './components/User/UserProfile';
 import EditProfile from './components/User/EditProfile';
 import MoviePage from './/components/MoviePage/MoviePage';
+
+>>>>>>> master
 
 
 const checkAuthenticationStatus = () => {
@@ -59,6 +67,7 @@ class Root extends React.Component {
           <Navbar logout={this.logout} isAuthenticated={isAuthenticated} currentUser={currentUser} />
           <Switch>
             <Route exact path="/" component={App} />
+            <Route path="/search" component={Search} />
             <Route
               path="/login"
               render={props => (
@@ -70,7 +79,7 @@ class Root extends React.Component {
               render={props => <Register {...props} isAuthenticated={isAuthenticated} />}
             />
             <Route
-              path="/UserProfile"
+              path="/UserProfile/:id"
               render={props => <UserProfile {...props} currentUser={currentUser} isAuthenticated={isAuthenticated} />}
             />
             <Route
