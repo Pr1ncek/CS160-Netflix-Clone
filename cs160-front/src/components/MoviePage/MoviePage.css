@@ -8,6 +8,19 @@
 	height: 100%;
 }
 
+#parent{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#child{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+}
 
 .videoWrapper 
 {
@@ -20,7 +33,8 @@
 
 #comments
 {
-	overflow: scroll;
+	/*overflow-y: scroll;*/
+	overflow: hidden;
 	height: 300px;
 	width: 50%;
 	font-size: 12;

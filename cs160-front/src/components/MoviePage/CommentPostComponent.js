@@ -13,8 +13,6 @@ class CommentPostComponent extends Component {
 		comment_text: ''
 	}
 
-
-
 	handleChange = (e) => {
 		console.log(e.target.value)
 		console.log(e.target.id)
@@ -25,27 +23,25 @@ class CommentPostComponent extends Component {
 		console.log("here")
 		console.log(this.state.comment_text)
 		console.log(this.props.id)
+		console.log(this.props.user)
 		axios.post('api/comments/postComment', 
 			{
 				text: this.state.comment_text, 
 				movieID: this.props.id, 
-				userID: this.props.user
+				userID: this.props.user.id
 			}).then(res => 
 			{
 				console.log(res.data);
 			})
 	}
 	
-
 	render() {
 		return (
 			
-			<div id="comment">
-				<form onSubmit={this.post}>
-		    		<input id="comment_text" class="form-control" type="text" placeholder="Comment"  onChange={this.handleChange}/>
-					<button type="submit" class="btn btn-light" ref='comment' >Post</button>
-				</form>
-			</div>
+			<form id="comment" onSubmit={this.post}>
+		   		<input id="comment_text" class="form-control" type="text" placeholder="Comment"  onChange={this.handleChange}/>
+				<button type="submit" class="btn btn-light" ref='comment' >Post</button>
+			</form>
 			/*
 			<section class="container">
     			<div class="one"></div>

@@ -5,8 +5,8 @@ class CommentComponent extends Component {
 	render() {
 		return (
 			<div class = "text-white">
-				Author
-				<p class = "comment">This is an example comment from a person </p>
+				{this.props.author}
+				<p class = "comment">{this.props.text}</p>
 			</div>
 		);
 	}

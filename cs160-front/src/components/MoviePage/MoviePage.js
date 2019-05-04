@@ -10,17 +10,21 @@ const axios = require("axios");
 
 class App extends Component {
   
-  state = {
-    movie: [],
-    comments: []
-  };
+  constructor () {
+    super();
+    this.state = {
+      movie: [],
+      comments: []
+    };
+  }
+
 
   componentDidMount() {
     // id = 5c919e9dd346841eaf9d1e4b
     console.log("Test")
     Promise.all([
-      axios.get('/api/movies/searchbyid?id=5c919e9dd346841eaf9d1e4b'),
-      axios.get('/api/comments/getMovieComments?id=5c919e9dd346841eaf9d1e4b')
+      axios.get('/api/movies/searchbyid?id=5c919e9bd346841eaf9d16ee'),
+      axios.get('/api/comments/getMovieComments?id=5c919e9bd346841eaf9d16ee')
       ])
         .then(([movieResponse, commentsResponse]) => {
           console.log(movieResponse.data);
@@ -31,6 +35,13 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.comments);
+    var comments = this.state.comments.length > 0 ? this.state.comments.map((comment) => {
+      return (
+        <CommentComponent author={this.state.comments.user} text={this.state.comments.text} />
+      );
+    }) : "";
+
     return (
       <div class="mb-2 bg-dark text-white">
         <div class="videoWrapper">
@@ -42,18 +53,21 @@ class App extends Component {
           <InformationComponent title={this.state.movie.title} description={this.state.movie.overview}/>
           <br />
           Comments
-          <div id = "comments">          
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
+          <div id = "comments">   
+            <div id = 'child'>
+             {comments}      
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+              <CommentComponent />
+            </div>
           </div>
-          <CommentPostComponent id={'5c919e9dd346841eaf9d1e4b'} user={this.props.currentUser}/>/*this.state.movie._id*/
+          <CommentPostComponent id={'5c919e9dd346841eaf9d1e4b'} user={this.props.currentUser}/>
         </div>
       </div>
     );
