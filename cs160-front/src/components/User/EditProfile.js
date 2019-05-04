@@ -50,7 +50,7 @@ class EditProfile extends Component {
   	});
   };
 
-  render() {
+    render() {
     const { currentUser } = this.props;
     return(
       <div className="mt-5 pt-5">
@@ -59,13 +59,25 @@ class EditProfile extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Edit Profile</h1>
               <p className="lead text-center mb-4">Edit your Notflix profile</p>
-              <div className="row">
-              <div className="col-md-4">
-              <img src={currentUser.avatar} className="img-thumbnail"></img>
-              <p className="lead text-center mb-4">Edit Avatar</p>
-              </div>
-              <div className="col-md-8">
               <form noValidate onSubmit={this.onSubmit}>
+              <div className="row">
+                  <div className="text-center col-md-2 mb-3 center-block">
+                    <img src={this.state.avatar} className="img-thumbnail"></img>
+                  </div>
+
+                  <div className="col-md-10 mt-4">
+                    <div className="form-group">
+                      <input 
+                      className="form-control"
+                      placeholder="Paste image URL"
+                      type="text"
+                      name="avatar"
+                      value={this.state.avatar}
+                      onChange={this.onChange}
+                  />
+                </div>
+                  </div>
+              </div>
                 <div className="form-group">
                   <input 
                   className="form-control"
@@ -122,8 +134,6 @@ class EditProfile extends Component {
                 </div>
               <input type="submit" className="btn btn-danger btn-block mt-4"/>
               </form>
-            </div>
-            </div>
             </div>
           </div>
         </div>
