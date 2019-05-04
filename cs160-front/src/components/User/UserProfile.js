@@ -70,6 +70,7 @@ class UserProfile extends React.Component {
   };
 
   render() {
+    const { currentUser } = this.props;
     return (
       <div className="UserProfile mt-5 pt-5">
         <div className="container">
@@ -85,7 +86,7 @@ class UserProfile extends React.Component {
                 <div class="col-md">
                   <ul className="lead mt-4 mb-4 font-weight-bold"><h2>{this.state.firstName} {this.state.lastName}</h2></ul>
                   <ul className="lead mb-4">Email: {this.state.email}</ul> 
-                  <ul><button type="button" className="btn btn-danger block"><a href="/edit/:id" class="nav-link text-white">Edit Profile</a></button></ul>
+                  <ul><button type="button" className="btn btn-danger block"><a href={'/edit/' + this.props.match.params.id} class="nav-link text-white">Edit Profile</a></button></ul>
                 </div>
               </div>
               <div className="row">
