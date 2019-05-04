@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Style.css";
 import axios from 'axios';
+import './EditProfile.css';
 //import avatarImg from './images/AvatarImg.png'
 
 
@@ -38,7 +39,7 @@ class EditProfile extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onInfoSubmit = e => {
   	e.preventDefault();
 
   	const { firstName, lastName, email, password } = this.state;
@@ -50,6 +51,10 @@ class EditProfile extends Component {
   	});
   };
 
+  onPasswordSubmit = e => {
+    this.props.history.push('/UserProfile/' + this.props.match.params.id)
+  };
+
     render() {
     const { currentUser } = this.props;
     return(
@@ -59,14 +64,11 @@ class EditProfile extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Edit Profile</h1>
               <p className="lead text-center mb-4">Edit your Notflix profile</p>
-              <form noValidate onSubmit={this.onSubmit}>
-              <div className="row">
-                  <div className="text-center col-md-2 mb-3 center-block">
-                    <img src={this.state.avatar} className="img-thumbnail"></img>
-                  </div>
-
-                  <div className="col-md-10 mt-4">
-                    <div className="form-group">
+              <form noValidate onSubmit={this.onInfoSubmit}>
+                <div className="text-center">
+                  <img src={this.state.avatar} className="img-thumbnail small-img-box"></img>
+                </div>
+                    <div className="form-group mt-3">
                       <input 
                       className="form-control"
                       placeholder="Paste image URL"
@@ -75,9 +77,7 @@ class EditProfile extends Component {
                       value={this.state.avatar}
                       onChange={this.onChange}
                   />
-                </div>
                   </div>
-              </div>
                 <div className="form-group">
                   <input 
                   className="form-control"
@@ -111,6 +111,14 @@ class EditProfile extends Component {
                   />
                 </div>
 
+                <input type="submit" className="btn btn-danger btn-block mt-4"/>
+                </form>
+
+                <hr className="hr-danger"/>
+
+                <form noValidate onSubmit={this.onPasswordSubmit}>
+                <p className="lead text-center mb-4">Reset your Notflix password</p>
+
                 <div className="form-group">
                   <input 
                   className="form-control"
@@ -132,7 +140,7 @@ class EditProfile extends Component {
                   onChange={this.onChange}
                   />
                 </div>
-              <input type="submit" className="btn btn-danger btn-block mt-4"/>
+               <input type="submit" className="btn btn-danger btn-block mt-4"/>
               </form>
             </div>
           </div>
