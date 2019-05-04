@@ -46,6 +46,7 @@ class EditProfile extends Component {
   	.put('/api/users/' + this.props.match.params.id + '/update', { firstName, lastName, email, password })
   	.then(res => {
   		console.log(res.data);
+      this.props.history.push('/UserProfile/' + this.props.match.params.id)
   	});
   };
 
