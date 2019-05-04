@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../Model/User');
 
-
-// @route   GET api/users/:id
+// @route   GET api/user/:id
 // @desc    grab a user by its id from DB
 // @access  Public
 router.get('/:id', (req, res) => {
@@ -12,7 +11,6 @@ router.get('/:id', (req, res) => {
         return res.status(200).json({
 			firstName: result.firstName,
 			lastName: result.lastName,
-			email: result.email,
 			avatar: result.avatar,
 			history: result.history,
 			favorites: result.favorites
@@ -65,7 +63,7 @@ router.put('/saveToHistory', (req, res) => {
 	});
 });
 
-// @route PUT api/users/addToFavorites
+// @route PUT api/user/addToFavorites
 // @desc save a movie to the user's favorites
 // @access Public
 router.put('/addToFavorites', (req, res) => {
@@ -86,7 +84,7 @@ router.put('/addToFavorites', (req, res) => {
 	});
 });
 
-// @route DELETE api/users/removeFromFavorites
+// @route DELETE api/user/removeFromFavorites
 // @desc remove a movie frome the user's favorites
 // @access Public
 router.delete("/removeFromFavorites", (req, res) => {
