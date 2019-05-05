@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./Style.css";
 import axios from 'axios';
 import './EditProfile.css';
-//import avatarImg from './images/AvatarImg.png'
-
 
 class EditProfile extends Component {
   constructor(props) {
@@ -12,8 +10,6 @@ class EditProfile extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      currentPassword: '',
-      newPassword: '',
       avatar: ''
     };
   }
@@ -42,9 +38,9 @@ class EditProfile extends Component {
   onSubmit = e => {
   	e.preventDefault();
 
-  	const { firstName, lastName, email, password } = this.state;
+  	const { firstName, lastName, email, avatar } = this.state;
   	axios
-  	.put('/api/users/' + this.props.match.params.id + '/update', { firstName, lastName, email, password })
+  	.put('/api/users/' + this.props.match.params.id + '/update', { firstName, lastName, email, avatar })
   	.then(res => {
   		console.log(res.data);
       this.props.history.push('/UserProfile/' + this.props.match.params.id)
@@ -53,7 +49,6 @@ class EditProfile extends Component {
 
 
     render() {
-    const { currentUser } = this.props;
     return(
       <div className="mt-5 pt-5">
         <div className="container">
