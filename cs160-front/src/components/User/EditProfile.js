@@ -39,7 +39,7 @@ class EditProfile extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onInfoSubmit = e => {
+  onSubmit = e => {
   	e.preventDefault();
 
   	const { firstName, lastName, email, password } = this.state;
@@ -51,9 +51,6 @@ class EditProfile extends Component {
   	});
   };
 
-  onPasswordSubmit = e => {
-    this.props.history.push('/UserProfile/' + this.props.match.params.id)
-  };
 
     render() {
     const { currentUser } = this.props;
@@ -64,7 +61,7 @@ class EditProfile extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Edit Profile</h1>
               <p className="lead text-center mb-4">Edit your Notflix profile</p>
-              <form noValidate onSubmit={this.onInfoSubmit}>
+              <form noValidate onSubmit={this.onSubmit}>
                 <div className="text-center">
                   <img src={this.state.avatar} className="img-thumbnail small-img-box"></img>
                 </div>
@@ -112,35 +109,6 @@ class EditProfile extends Component {
                 </div>
 
                 <input type="submit" className="btn btn-danger btn-block mt-4"/>
-                </form>
-
-                <hr className="hr-danger"/>
-
-                <form noValidate onSubmit={this.onPasswordSubmit}>
-                <p className="lead text-center mb-4">Reset your Notflix password</p>
-
-                <div className="form-group">
-                  <input 
-                  className="form-control"
-                  type="password"
-                  placeholder="Current Password"
-                  name="currentPassword"
-                  value={this.state.currentPassword}
-                  onChange={this.onChange}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <input 
-                  className="form-control"
-                  type="password"
-                  placeholder="New Password"
-                  name="newPassword"
-                  value={this.state.newPassword}
-                  onChange={this.onChange}
-                  />
-                </div>
-               <input type="submit" className="btn btn-danger btn-block mt-4"/>
               </form>
             </div>
           </div>
