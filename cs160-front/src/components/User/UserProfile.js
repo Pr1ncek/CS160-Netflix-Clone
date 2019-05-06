@@ -90,29 +90,26 @@ class UserProfile extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div class="col-md-6 border rounded">
-                  <p className="lead text-center mb-4">History</p>
-                  <div className="row">
+                <div className="col-md-6 padding-0">
+                <ul class="list-group text-center">
+                  <li className="list-group-item lead text-center bg-danger text-white">History</li>
                     {this.state.history.map(movie => {
                       return (
-                        <div class="border rounded">
-                          <p className="text-left">{movie}</p>
-                        </div>
+                          <li className="list-group-item">{movie}</li>
                       );
                     })}
-                  </div>
+                </ul>
                 </div>
-                <div class="col-md-6 border rounded">
-                  <p className="lead text-center mb-4">Comments</p>
-                  <div className="row">
+
+                <div className="col-md-6 padding-0">
+                <ul class="list-group text-center block">
+                  <li className="list-group-item lead text-center bg-danger text-white">Comments</li>
                     {this.state.comments.map(comment => {
                       return (
-                        <div class="border rounded">
-                          <p className="text-left">{comment}</p>
-                        </div>
+                          <li className="list-group-item">{comment}</li>
                       );
                     })}
-                  </div>
+                </ul>
                 </div>
               </div>
             </div>
