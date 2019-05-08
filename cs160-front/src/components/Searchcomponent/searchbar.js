@@ -27,7 +27,7 @@ class Searchbar extends React.Component {
         <div className="btn btn-danger">
       <form onSubmit={this.handleSubmit}>
         <input id = "searchbar" type="text" size="70" value={this.state.value} onChange={this.handleChange} />
-        <input type="submit" value="Search" />
+        <input id = "searchButton" type="submit" value="Search" />
       </form>
         </div>
         </div>
