@@ -5,7 +5,7 @@ class CommentComponent extends Component {
 	render() {
 		return (
 			<div class = "text-white">
-				{this.props.author}
+				{this.props.firstName} {this.props.lastName}
 				<p class = "comment">{this.props.text}</p>
 			</div>
 		);
