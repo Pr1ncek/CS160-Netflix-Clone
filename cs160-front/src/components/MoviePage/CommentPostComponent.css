@@ -1,0 +1,12 @@
+#comment
+{
+	width:50%;
+	display:flex;
+	padding-bottom: 30px;
+	padding-top: 15px;
+}
+
+#comment_text
+{
+	flex: 1;
+}

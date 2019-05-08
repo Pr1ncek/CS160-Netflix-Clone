@@ -87,7 +87,8 @@ router.get('/search', (req, res) => {
 // @desc    search for a movie by its id
 // @access  Public
 router.get('/searchbyid', (req, res) => {
-  Movie.findById(req.body.id)
+  //console.log(req);
+  Movie.findById(req.query.id)
     .then(result => {
       return res.status(200).json(result);
     })
