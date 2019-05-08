@@ -7,11 +7,9 @@ const Comment = require('../Model/Comment');
 // @desc search for comments by its movieId, grab user's name
 // @access Public
 router.get('/getMovieComments', (req, res) => {
-   Comment.find({movie: req.body.id}).populate('user')
-   .then(comments => {
-       return res.status(200).json(comments);
-   })
-   .catch(err => {
+   Comment.find({movie: req.query.id}).populate('user').then(comment => {
+       return res.status(200).json({comment: comment});
+   }).catch(err => {
        console.log(err);
        return res.status(401).send(err);
    });

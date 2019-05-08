@@ -7,13 +7,9 @@ class DescriptionComponent extends Component {
 			<div class="text-white">
 				< br/>
 
-				<div id = "title">Gone With the Wind</div>
+				<div id = "title">{this.props.title}</div>
 				
-				This is an old time movie, that i didn't really watch, 
-				 but i know that it is kind of famous anyway, its kind of 
-				 a whatever movie. I watched this movie when I was a teenager 
-				 and it was so sad and depressing I dont know why anyone would 
-				 watch it
+				<div> {this.props.description} </div>
 			</div>
 		);
 	}
