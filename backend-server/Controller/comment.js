@@ -21,6 +21,6 @@ router.get('/getMovieComments', (req, res) => {
 router.post('/postComment', (req, res) => {
     var newComment = new Comment({movie: req.body.movieID, user: req.body.userID, text: req.body.text});
     newComment.save();
-    return res.status(200).json(newComment);
+    return res.status(200).json({ Msg: 'Success', newComment: newComment });
 });
 module.exports = router;
