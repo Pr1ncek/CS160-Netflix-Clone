@@ -191,13 +191,19 @@ class App extends Component {
                       <p className="card-text pb-2">
                         Rating:<strong> {movie.vote_average}</strong>
                       </p>
-                      <button className="btn btn-danger w-100">Play</button>
+                      <button
+                        className="btn btn-danger w-100"
+                        onClick={() => this.props.history.push(`/movie/${movie._id}`)}
+                      >
+                        Play
+                      </button>
                     </div>
                   </div>
                 </div>
               );
             })}
         </div>
+
         <h1>Horror</h1>
         <div className="row">
           {horrorMoviesLoaded &&
@@ -232,12 +238,18 @@ class App extends Component {
                     <p className="card-text pb-2">
                       Rating:<strong> {movie.vote_average}</strong>
                     </p>
-                    <button className="btn btn-danger w-100">Play</button>
+                    <button
+                      className="btn btn-danger w-100"
+                      onClick={() => this.props.history.push(`/movie/${movie._id}`)}
+                    >
+                      Play
+                    </button>
                   </div>
                 </div>
               );
             })}
         </div>
+
         <h1>Top Rated</h1>
         <div className="row">
           {isLoaded &&
@@ -272,12 +284,18 @@ class App extends Component {
                     <p className="card-text pb-2">
                       Rating:<strong> {movie.vote_average}</strong>
                     </p>
-                    <button className="btn btn-danger w-100">Play</button>
+                    <button
+                      className="btn btn-danger w-100"
+                      onClick={() => this.props.history.push(`/movie/${movie._id}`)}
+                    >
+                      Play
+                    </button>
                   </div>
                 </div>
               );
             })}
         </div>
+
         <div style={{ paddingLeft: '40%', paddingBottom: '3%' }}>
           <button className="btn btn-dark pl-5 pr-5">Load More</button>{' '}
         </div>
